@@ -17,8 +17,8 @@ public class Cliente extends Persona{
         frecuenciaPago = FrecuenciaPago.DIARIA;
     }
 
-    public Cliente(String nombre, String apellido, int dni, char genero, int edad, int celular, boolean deuda, LocalDate fechaIngreso, boolean certificadoSalud,FrecuenciaPago frecuenciaPago ){
-        super(nombre,apellido,dni,genero,edad,celular);
+    public Cliente(boolean deuda, LocalDate fechaIngreso, boolean certificadoSalud,FrecuenciaPago frecuenciaPago ){
+        super();
         this.deuda = deuda;
         this.fechaIngreso = fechaIngreso;
         this.certificadoSalud = certificadoSalud;
@@ -27,7 +27,7 @@ public class Cliente extends Persona{
 
     @Override
     public String toString() {
-        return "Cliente[" + super.toString() +
+        return "Cliente[ " + super.toString() +
                 "deuda=" + deuda +
                 ", fechaIngreso=" + fechaIngreso +
                 ", certificadoSalud=" + certificadoSalud +
