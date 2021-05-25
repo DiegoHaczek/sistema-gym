@@ -1,9 +1,7 @@
 package com.tpfinal;
 
 import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class Cliente extends Persona{
 
@@ -19,7 +17,6 @@ public class Cliente extends Persona{
         super();
         fechaIngreso = LocalDate.now();
         certificadoSalud = false;
-        frecuenciaPago = FrecuenciaPago.DIARIA;
         initDatos();
     }
 
@@ -27,12 +24,44 @@ public class Cliente extends Persona{
         super();
         this.fechaIngreso = fechaIngreso;
         this.certificadoSalud = certificadoSalud;
-        this.frecuenciaPago = frecuenciaPago;
         initDatos();
     }
 
     private void initDatos(){
 
+        //ELECCION DE FRECUENCIA DE PAGO
+        int eleccionPago = 0;
+        Scanner scanner = new Scanner(System.in);
+
+        while(eleccionPago != 1 && eleccionPago != 2 && eleccionPago != 3){
+
+            System.out.println("Elegí una opción de pago");
+            System.out.println("1=Pago por día, costo $300");
+            System.out.println("2=Pago por semana, costo $1000");
+            System.out.println("3=Pago por mes, costo $2500");
+
+            try {
+                eleccionPago = scanner.nextInt();
+            }catch (InputMismatchException e) {
+                System.out.println("Debe ingresar unicamente numeros");
+            }
+
+            //" limpio el buffer "
+            scanner.nextLine();
+        }
+        switch (eleccionPago){
+            case 1:
+                frecuenciaPago = FrecuenciaPago.DIARIA;
+                break;
+            case 2:
+                frecuenciaPago = FrecuenciaPago.SEMANAL;
+                break;
+            case 3:
+                frecuenciaPago = FrecuenciaPago.MENSUAL;
+                break;
+        }
+
+        //SALDO Y PAGO DE CUOTA
         mapaPrecios.put(FrecuenciaPago.DIARIA,300);
         mapaPrecios.put(FrecuenciaPago.SEMANAL,1000);
         mapaPrecios.put(FrecuenciaPago.MENSUAL,2500);
