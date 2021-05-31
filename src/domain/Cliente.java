@@ -1,4 +1,4 @@
-package com.tpfinal;
+package domain;
 
 import java.time.LocalDate;
 import java.util.HashMap;

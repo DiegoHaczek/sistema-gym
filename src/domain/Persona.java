@@ -1,4 +1,4 @@
-package com.tpfinal;
+package domain;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
