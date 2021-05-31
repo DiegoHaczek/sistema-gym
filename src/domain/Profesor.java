@@ -1,4 +1,4 @@
-package com.tpfinal;
+package domain;
 
 public class Profesor extends Persona{
 

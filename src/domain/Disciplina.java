@@ -1,4 +1,4 @@
-package com.tpfinal;
+package domain;
 
 public enum Disciplina {
     CROSSFIT,
