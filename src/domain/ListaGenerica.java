@@ -17,11 +17,11 @@ public class ListaGenerica<T> extends Persona{
 			{
 				lista.add(t);
 			}/* else{
-				throw new LimiteExcepcion("Esta lleno pajero!");
+				throw new LimiteExcepcion("Turnos Llenos!");
 				}*/
 			}
 		
-		public void agregar_A_lista(T t) {
+		public void Agregar_A_lista(T t) {
 			lista.add(t);
 		}
 		
@@ -48,13 +48,21 @@ public class ListaGenerica<T> extends Persona{
 			for (T e : lista) {
 				/*if( e.ID()== a)
 				{
-					lista.remove(e);
 					return e;
 				}*/
 		}
 			return null;
 		}
-		
+		public T Buscar_en_Lista(String apellido)
+		{
+			for (T e : lista) {
+				/*if( e.apellido()== apellido)
+				{
+					return e;
+				}*/
+		}
+			return null;
+		}
 			
 		/*public JSONArray levantarJson() throws JSONException {
 		    JSONArray listArray = new JSONArray();

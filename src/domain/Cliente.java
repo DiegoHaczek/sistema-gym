@@ -1,7 +1,9 @@
 package domain;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 
 public class Cliente extends Persona{
 
@@ -20,7 +22,7 @@ public class Cliente extends Persona{
         initDatos();
     }
 
-    public Cliente(LocalDate fechaIngreso, boolean certificadoSalud,FrecuenciaPago frecuenciaPago ){
+    public Cliente(LocalDate fechaIngreso, boolean certificadoSalud){
         super();
         this.fechaIngreso = fechaIngreso;
         this.certificadoSalud = certificadoSalud;
