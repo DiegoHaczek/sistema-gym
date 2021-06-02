@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6842fef1-d308-48ad-8259-c680f3715845" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/domain/Billetera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tpfinal/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tpfinal/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tpfinal/Turno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tpfinal/Turno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/GYM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/GYM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/Persona.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/Profesor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/Profesor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +20,7 @@
       <list>
         <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -31,6 +36,9 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="1suW6w6MGg7rLOZmjThLcOXPCwF" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
@@ -122,5 +130,16 @@
       <updated>1621722784792</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

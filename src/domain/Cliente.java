@@ -1,35 +1,38 @@
 package domain;
 
 import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
-public class Cliente extends Persona{
+public class Cliente extends Persona {
 
-    private boolean deuda;
+
     private LocalDate fechaIngreso;
     private boolean certificadoSalud;
     private FrecuenciaPago frecuenciaPago;
 
     private Map<FrecuenciaPago,Integer> mapaPrecios = new HashMap<>();
-    private int saldo;
 
     public Cliente(){
         super();
         fechaIngreso = LocalDate.now();
         certificadoSalud = false;
-        initDatos();
+        iniciarDatos();
     }
 
     public Cliente(LocalDate fechaIngreso, boolean certificadoSalud){
         super();
         this.fechaIngreso = fechaIngreso;
         this.certificadoSalud = certificadoSalud;
-        initDatos();
+        iniciarDatos();
     }
 
-    private void initDatos(){
+
+    private void iniciarDatos(){
+
+        //PRECIOS DE FRECUENCIAS DE PAGO
+        mapaPrecios.put(FrecuenciaPago.DIARIA,300);
+        mapaPrecios.put(FrecuenciaPago.SEMANAL,1000);
+        mapaPrecios.put(FrecuenciaPago.MENSUAL,2500);
 
         //ELECCION DE FRECUENCIA DE PAGO
         int eleccionPago = 0;
@@ -63,23 +66,22 @@ public class Cliente extends Persona{
                 break;
         }
 
-        //SALDO Y PAGO DE CUOTA
-        mapaPrecios.put(FrecuenciaPago.DIARIA,300);
-        mapaPrecios.put(FrecuenciaPago.SEMANAL,1000);
-        mapaPrecios.put(FrecuenciaPago.MENSUAL,2500);
+        //Creo la billetera
+        super.initBilletera();
 
-        Random random = new Random();
-        this.saldo = random.nextInt(3000);
-
-        int cuota = mapaPrecios.get(frecuenciaPago);
-        if(saldo >= cuota){
-            deuda = false;
-            System.out.println("Se descontaron $" + cuota + " de tu saldo. Quedando restantes $" + saldo);
+        //Pago la cuota, si el saldo es insuficiente aumento deuda.
+        if(super.pagar(mapaPrecios.get(frecuenciaPago))){
+            super.saldo -= mapaPrecios.get(frecuenciaPago);
         }else{
-            System.out.println("Tu saldo es insuficiente, podras reservar turno pero tendras deuda");
-            this.deuda = true;
+            System.out.println("Tu saldo es insuficiente para realizar esta operacion, podras reservar un turno pero tendras deuda");
+            super.deuda += mapaPrecios.get(frecuenciaPago);
         }
+
+        //Muestro el saldo
+        super.verSaldo();
+
     }
+
 
     @Override
     public String toString() {

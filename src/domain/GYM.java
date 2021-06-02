@@ -14,7 +14,7 @@ public class GYM {
 	//ListaGenerica<Persona> listaPersona;
 	ListaGenerica<Persona> listaCliente;
 	ListaGenerica<Persona> listaProfesor;
-	ListaGenerica<Cliente> listaClienteConDeudas;
+	ListaGenerica<Persona> listaClienteConDeudas;
 	
 	public GYM() {
 		lista= new ListaGenerica<>();
@@ -76,11 +76,19 @@ public class GYM {
 	}
 public void Dar_De_baja()//de la lista Cliente que pasan a la lista deudores
 {
-		
+	for(Persona cliente : listaCliente.lista){
+		if(cliente.getDeuda() > 0){
+			listaClienteConDeudas.lista.add(cliente);
+		}
+	}
 }
 public void Dar_De_alta()//de la lista deudores que pasan a lista Cliente
 {
-	
+	for(Persona cliente : listaClienteConDeudas.lista){
+		if(cliente.getDeuda() < 0){
+			listaCliente.lista.add(cliente);
+		}
+	}
 }
 public void Ver_Turnos()//Muestra tipo de clase, Horarios, Profesor y cantidad de cupos 
 {

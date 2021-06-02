@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Random;
+
 public class Profesor extends Persona{
 
     private Disciplina disciplina;
@@ -9,9 +11,18 @@ public class Profesor extends Persona{
         disciplina = Disciplina.MUSCULACION;
     }
 
-    public Profesor(String nombre, String apellido, int dni, char genero, int edad, int celular, Disciplina disciplina){
+    public Profesor(Disciplina disciplina){
         super();
         this.disciplina = disciplina;
+    }
+
+    private void iniciarDatos(){
+
+        //Creo la billetera
+        super.initBilletera();
+
+        //Muestro el saldo
+        super.verSaldo();
     }
 
     @Override

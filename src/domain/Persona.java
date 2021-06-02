@@ -1,9 +1,10 @@
 package domain;
 
 import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 
-public class Persona {
+public class Persona implements Billetera{
 
     private String nombre;
     private String apellido;
@@ -12,9 +13,13 @@ public class Persona {
     private int edad;
     private int celular;
 
+    protected int saldo = 0;
+    protected int deuda = 0;
+
     public Persona() {
         crearPersona();
     }
+    public int getDeuda() { return deuda; }
 
     public void crearPersona(){
         Scanner scanner = new Scanner(System.in);
@@ -74,6 +79,7 @@ public class Persona {
 
     }
 
+
     @Override
     public String toString() {
         return "Persona[" +
@@ -85,4 +91,33 @@ public class Persona {
                 ", celular=" + celular +
                 ']';
     }
+
+
+    @Override
+    public void initBilletera() {
+        //Como se va a aplicar a profesor/cliente el saldo sera random suponiendo de que ya tienen plata.
+        Random random = new Random();
+        saldo = random.nextInt(3000);
+    }
+
+    @Override
+    public boolean pagar(int debito) {
+        if(debito < saldo){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    @Override
+    public void agregar(int credito) {
+        saldo += credito;
+    }
+
+    @Override
+    public void verSaldo() {
+        System.out.println("Tu saldo actual es: $" + saldo);
+    }
+
+
 }
