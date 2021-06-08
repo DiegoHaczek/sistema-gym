@@ -62,9 +62,9 @@ public class Turno {
     }
 
     public void BorrarCliente(Persona persona) {
-       clientes.delete(persona);
+        // ver como arreglar esto
+        clientes.delete(persona);
     }
-
 
     public void setClientes(ArrayList<Persona> clientes) {
         this.clientes = clientes;

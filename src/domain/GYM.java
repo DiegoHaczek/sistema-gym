@@ -99,6 +99,7 @@ public class GYM {
 
 	public boolean Incribirse_A_Turnos(LocalTime horario, Cliente cliente)// turnos
 	{
+		// ver como arreglar esto
 		for (Turno e : listaTurnos) {
 			if (e.getHorario() == horario) {
 				if (e.getEstaLleno()) {
@@ -122,6 +123,7 @@ public class GYM {
 
 	public void Cancelar_Turno(LocalTime horario, Persona persona)// Turnos
 	{
+		// ver como arreglar esto
 		for (Turno e : listaTurnos) {
 			if (e.getHorario() == horario) {
 				e.BorrarCliente(persona);
