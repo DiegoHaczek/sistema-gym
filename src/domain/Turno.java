@@ -13,7 +13,7 @@ public class Turno {
     private Profesor profesor;
     private boolean estaLleno;
 
-///region constructores
+    /// region constructores
 
     public Turno() {
     }
@@ -22,16 +22,20 @@ public class Turno {
         this.horario = horario;
     }
 
-    public Turno(LocalTime horario, ArrayList<Persona> clientes, Profesor profesor) {
+    public Turno(LocalTime horario, Profesor profesor) {
+        this.horario = horario;
+        this.profesor = profesor;
+    }
+
+    public Turno(LocalTime horario, Profesor profesor, ArrayList<Persona> clientes) {
         this.horario = horario;
         this.clientes = clientes;
         this.profesor = profesor;
-        this.estaLleno =getEstaLleno();
+        this.estaLleno = getEstaLleno();
     }
-    ///endregion
+    /// endregion
 
-///region getters y setters
-
+    /// region getters y setters
 
     public LocalTime getHorario() {
         return horario;
@@ -41,8 +45,25 @@ public class Turno {
         this.horario = horario;
     }
 
-    public ArrayList<Persona> AgregarCliente() {
-        return clientes;
+    // Porque agregas el cliente de esta forma?
+    /*
+     * public ArrayList<Persona> AgregarCliente() { return clientes; }
+     */
+
+    public boolean AgregarCliente(Persona persona) {
+        for (Persona e : clientes) {
+            if (e.equals(persona)) {
+                System.out.println("El cliente ya se encuentra en este turno");
+                return false;
+            }
+        }
+        clientes.add(persona);
+        return true;
+    }
+
+    public void BorrarCliente(Persona persona) {
+        // ver como arreglar esto
+        clientes.delete(persona);
     }
 
     public void setClientes(ArrayList<Persona> clientes) {
@@ -57,9 +78,11 @@ public class Turno {
         this.profesor = profesor;
     }
 
-    public boolean getEstaLleno() {                   /// retorna que el turno esta completo si
-        estaLleno = false;                            /// ya hay mas de 10 clientes anotados
-        if (clientes.size()>10){estaLleno = true;}
+    public boolean getEstaLleno() { /// retorna que el turno esta completo si
+        estaLleno = false; /// ya hay mas de 10 clientes anotados
+        if (clientes.size() > 10) {
+            estaLleno = true;
+        }
 
         return estaLleno;
     }
@@ -68,26 +91,20 @@ public class Turno {
         this.estaLleno = estaLleno;
     }
 
-    public String mostrarEstaLleno(){
+    public String mostrarEstaLleno() {
 
         if (getEstaLleno()) {
-            return "Turno lleno"; }else
-        {return "El turno no esta lleno";
-    }}
-
-///endregion
-
-
-
-    public String VerTurno() {
-        return "Turno{" +
-                "horario=" + getHorario().getHour() +             /// muestra solo la hora
-                  ", \n clientes=" + clientes +
-                ",\n Vacantes=" + mostrarEstaLleno() +
-                '}';
+            return "Turno lleno";
+        } else {
+            return "El turno no esta lleno";
+        }
     }
 
+    /// endregion
+
+    public String VerTurno() {
+        return "Turno{" + "horario=" + getHorario().getHour() + /// muestra solo la hora
+                ", \n clientes=" + clientes + ",\n Vacantes=" + mostrarEstaLleno() + '}';
+    }
 
 }
-
-
