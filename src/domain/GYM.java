@@ -5,8 +5,6 @@ import excepciones.LimiteExcepcion;
 public class GYM {
 
 	
-	ListaGenerica<Object> lista;
-	MapaGenerico<Integer, Object> mapa;
 	//Persona persona;
 	Cliente cliente;
 	//Persona persona;
@@ -17,8 +15,6 @@ public class GYM {
 	ListaGenerica<Persona> listaClienteConDeudas;
 	
 	public GYM() {
-		lista= new ListaGenerica<>();
-		mapa= new MapaGenerico<>();
 		listaCliente = new ListaGenerica<>();
 		listaProfesor = new ListaGenerica<>();
 		listaClienteConDeudas = new ListaGenerica<>();
