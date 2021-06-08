@@ -42,6 +42,15 @@ public class ListaGenerica<T> extends Persona{
 				}*/
 		}
 		}
+		public void Eliminar_De_Lista(T t)
+		{
+			for (T e : lista) {
+				if( e.equals(t))
+				{
+					lista.remove(e);
+				}
+		}
+		}
 		
 		public T Buscar_en_Lista(int ID)
 		{
