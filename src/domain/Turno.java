@@ -63,7 +63,7 @@ public class Turno {
 
     public void BorrarCliente(Persona persona) {
         // ver como arreglar esto
-        clientes.delete(persona);
+        clientes.remove(persona);
     }
 
     public void setClientes(ArrayList<Persona> clientes) {

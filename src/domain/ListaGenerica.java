@@ -1,6 +1,11 @@
 package domain;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class ListaGenerica<T> extends Persona {
 
@@ -48,11 +53,15 @@ public class ListaGenerica<T> extends Persona {
 		}
 	}
 
-	public T Buscar_en_Lista(int ID) {
+	public T Buscar_en_Lista(LocalTime horario) {
+		Turno turno;
 		for (T e : lista) {
-			/*
-			 * if( e.ID()== a) { return e; }
-			 */
+			if (e instanceof Turno) {
+				turno = (Turno) e;
+				if (turno.getHorario() == horario) {
+					return e;
+				}
+			}
 		}
 		return null;
 	}
@@ -66,14 +75,18 @@ public class ListaGenerica<T> extends Persona {
 		return null;
 	}
 
-	/*
-	 * public JSONArray levantarJson() throws JSONException { JSONArray listArray =
-	 * new JSONArray(); JsonUtil utiles = new JsonUtil(); JSONObject jsonObject =
-	 * new JSONObject();
-	 * 
-	 * for (T e : lista) { listArray.put(e.getFormatoJSON()); }
-	 * 
-	 * String respuesta = listArray.toString(); JSONArray arregloJson = new
-	 * JSONArray(respuesta); utiles.grabarJson(arregloJson); return arregloJson; }
-	 */
+	public JSONArray levantarJson() throws JSONException {
+		JSONArray listArray = new JSONArray();
+		JsonUtil utiles = new JsonUtil();
+		JSONObject jsonObject = new JSONObject();
+
+		for (T e : lista) {
+			listArray.put(e.getFormatoJSON());
+		}
+		String respuesta = listArray.toString();
+		JSONArray arregloJson = new JSONArray(respuesta);
+		utiles.grabarJson(arregloJson);
+		return arregloJson;
+	}
+
 }

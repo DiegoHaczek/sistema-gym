@@ -99,18 +99,14 @@ public class GYM {
 
 	public boolean Incribirse_A_Turnos(LocalTime horario, Cliente cliente)// turnos
 	{
-		// ver como arreglar esto
-		for (Turno e : listaTurnos) {
-			if (e.getHorario() == horario) {
-				if (e.getEstaLleno()) {
-					listaTurnos.Eliminar_De_Lista(e);
-					e.AgregarCliente(cliente);
-					listaTurnos.Agregar_A_lista(e);
-					return true;
-				}
-				System.out.println("Esta lleno Sorry");
-				return false;
+		// ver si al retorno un puntero donde lo modifica de una
+		if (listaTurnos.Buscar_en_Lista(horario) != null) {
+			if (listaTurnos.Buscar_en_Lista(horario).getEstaLleno()) {
+				listaTurnos.Buscar_en_Lista(horario).AgregarCliente(cliente);
+				return true;
 			}
+			System.out.println("Esta lleno Sorry");
+			return false;
 		}
 		return false;
 	}
@@ -123,12 +119,8 @@ public class GYM {
 
 	public void Cancelar_Turno(LocalTime horario, Persona persona)// Turnos
 	{
-		// ver como arreglar esto
-		for (Turno e : listaTurnos) {
-			if (e.getHorario() == horario) {
-				e.BorrarCliente(persona);
-			}
-		}
+		// ver si al retorno un puntero donde lo modifica de una
+		listaTurnos.Buscar_en_Lista(horario).BorrarCliente(persona);
 	}
 
 	public void Vender_Productos() // Tienda
