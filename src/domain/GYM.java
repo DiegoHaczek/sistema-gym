@@ -138,4 +138,18 @@ public class GYM {
 
 	}
 
+	public JSONArray levantarJson() throws JSONException {
+		JSONArray listArray = new JSONArray();
+		JsonUtil utiles = new JsonUtil();
+		JSONObject jsonObject = new JSONObject();
+
+		for (T e : lista) {
+			listArray.put(e.getFormatoJSON());
+		}
+		String respuesta = listArray.toString();
+		JSONArray arregloJson = new JSONArray(respuesta);
+		utiles.grabarJson(arregloJson);
+		return arregloJson;
+	}
+
 }

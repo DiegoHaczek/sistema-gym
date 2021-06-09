@@ -1,0 +1,10 @@
+{
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/**/*.jar"
+        ],
+        "exclude": [
+            "c:\\GitHub_sistema-gym\\Carpeta Json\\java-json.jar"
+        ]
+    }
+}
