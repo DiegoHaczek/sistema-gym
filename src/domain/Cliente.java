@@ -7,6 +7,7 @@ public class Cliente extends Persona {
 
 
     private LocalDate fechaIngreso;
+    private boolean certificadoSalud;
     private FrecuenciaPago frecuenciaPago;
 
     private Map<FrecuenciaPago,Integer> mapaPrecios = new HashMap<>();
@@ -14,12 +15,14 @@ public class Cliente extends Persona {
     public Cliente(){
         super();
         fechaIngreso = LocalDate.now();
+        certificadoSalud = false;
         iniciarDatos();
     }
 
-    public Cliente(LocalDate fechaIngreso){
+    public Cliente(LocalDate fechaIngreso, boolean certificadoSalud){
         super();
         this.fechaIngreso = fechaIngreso;
+        this.certificadoSalud = certificadoSalud;
         iniciarDatos();
     }
 
@@ -69,7 +72,6 @@ public class Cliente extends Persona {
         //Pago la cuota, si el saldo es insuficiente aumento deuda.
         if(super.pagar(mapaPrecios.get(frecuenciaPago))){
             super.saldo -= mapaPrecios.get(frecuenciaPago);
-            System.out.println("Has pagado la cuota con exito.");
         }else{
             System.out.println("Tu saldo es insuficiente para realizar esta operacion, podras reservar un turno pero tendras deuda");
             super.deuda += mapaPrecios.get(frecuenciaPago);
@@ -86,6 +88,7 @@ public class Cliente extends Persona {
         return "Cliente[ " + super.toString() +
                 "deuda=" + deuda +
                 ", fechaIngreso=" + fechaIngreso +
+                ", certificadoSalud=" + certificadoSalud +
                 ", frecuenciaPago=" + frecuenciaPago +
                 ", saldo=" + saldo +
                 ']';

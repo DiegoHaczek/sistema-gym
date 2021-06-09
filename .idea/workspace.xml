@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6842fef1-d308-48ad-8259-c680f3715845" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/gson_2_8_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/domain/Billetera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sistema-gym/com/tpfinal/Cliente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sistema-gym/com/tpfinal/Disciplina.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sistema-gym/com/tpfinal/FrecuenciaPago.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sistema-gym/com/tpfinal/Persona.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sistema-gym/com/tpfinal/Profesor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sistema-gym.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-gym.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/domain/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/Cliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/domain/GYM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/GYM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/Persona.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/Profesor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/Profesor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,29 +99,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/librerias/java-json.jar" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Application.Main (1)">
-    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="app.Main" />
-      <module name="sistema-gym" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.tpfinal.Main" />
       <module name="sistema-gym" />
@@ -138,7 +116,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -164,6 +141,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
