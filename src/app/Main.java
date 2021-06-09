@@ -7,13 +7,12 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
+
 		int op;
 		String opString;
 		int opint;
 		int opint2;
 		boolean b = true;
-
-
 		
 		while (true) {
 
@@ -53,5 +52,7 @@ public class Main {
 			}
 		}
 
+
 	}
+
 }
