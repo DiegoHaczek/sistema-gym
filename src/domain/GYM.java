@@ -1,6 +1,8 @@
 package domain;
 
 import java.time.LocalTime;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 import excepciones.LimiteExcepcion;
 
@@ -57,14 +59,96 @@ public class GYM {
 
 	// BORRAR
 
-	public void Borrar() {
+	public void BorrarPersona()
+	{
+		Scanner scanner = new Scanner(System.in);
 
+		int rta = 0;
+		int dni = 0;
+		do{
+			scanner.nextLine();
+			try{
+				System.out.println("Desea borrar un profesor o un cliente? 1: Profesor 2: Cliente ");
+				rta= scanner.nextInt();}
+			catch (InputMismatchException e){ System.out.println("Debe ingresar 1 o 2");}
+			catch (Exception e){ e.getMessage();}
+			if (rta==1){
+				ListarProfesor();
+				scanner.nextLine();
+				try{System.out.println("Ingrese Dni del profesor a borrar ");
+					dni = scanner.nextInt();}
+				catch (InputMismatchException e){ System.out.println("Debe ingresar un DNI");
+				}catch (Exception e){e.getMessage();}
+				if (listaProfesor.lista!=null){
+
+					for (Persona profesor: listaProfesor.lista) {
+						if (profesor.getDni()==dni){
+							listaProfesor.lista.remove(profesor);
+							System.out.println("Profesor Borrado");
+							break;                                                     ///Corto el ciclo una vez encontrado
+						}else { System.out.println("No existe un profesor con ese DNI"); }}}
+			}if(rta==2){
+				ListarCliente();
+				scanner.nextLine();
+				try{System.out.println("Ingrese Dni del Cliente a borrar ");
+					dni = scanner.nextInt();}
+				catch (InputMismatchException e){ System.out.println("Debe ingresar un DNI");
+				}catch (Exception e){e.getMessage();}
+				if (listaCliente.lista!=null){
+					for (Persona cliente: listaCliente.lista) {
+						if (cliente.getDni()==dni){
+							listaCliente.lista.remove(cliente);
+							System.out.println("Cliente Borrado");
+							break;
+						}else { System.out.println("No existe un cliente con ese DNI"); }}}
+
+
+			}}while(rta!=1&&rta!=2);}
+
+	public void BuscarProfesorPorDNI()
+	{
+		int dni=0;
+		Scanner scanner = new Scanner(System.in);
+		while (dni==0){
+			scanner.nextLine();
+			try{
+				System.out.println("Ingrese el DNI del profesor a buscar");
+				dni=scanner.nextInt();}
+			catch (InputMismatchException e){ System.out.println("Debe ingresar un DNI");}
+			catch (Exception e){e.getMessage();}
+
+			for (Persona profesor: listaProfesor.lista) {
+				if (profesor.getDni() == dni) {
+					System.out.println(profesor);
+					break;
+				} else {
+					System.out.println("No existe un profesor con ese DNI");
+				}
+			}
+		}
 	}
 
-	// BUSCAR
+	public void BuscarClientePorDNI()
+	{
+		int dni=0;
+		Scanner scanner = new Scanner(System.in);
+		while (dni==0){
+			scanner.nextLine();
+			try{
+				System.out.println("Ingrese el DNI del cliente a buscar");
+				dni=scanner.nextInt();}
+			catch (InputMismatchException e){ System.out.println("Debe ingresar un DNI");}
+			catch (Exception e){e.getMessage();}
 
-	public void Buscar() {
-
+			for (Persona cliente: listaCliente.lista) {
+				if (cliente.getDni() == dni) {
+					System.out.println(cliente);
+					break;
+				} else {
+					System.out.println("No existe un cliente con ese DNI");
+				}
+			}
+		}
 	}
 
 	/*
