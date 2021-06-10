@@ -8,14 +8,16 @@ public class Producto {
 
     private String nombreProducto;
     int stock;
+    int precio;
 
     public Producto() {
         CrearProducto();
     }
 
-    public Producto(String nombreProducto, int stock) {
+    public Producto(String nombreProducto, int stock, int precio) {
         this.nombreProducto = nombreProducto;
         this.stock = stock;
+        this.precio = precio;
     }
 
     public void CrearProducto(){
@@ -30,18 +32,31 @@ public class Producto {
                     e.getMessage();
                 }}
 
-         while (this.stock==0){
-        scanner.nextLine();
+        while (this.stock==0){
+            scanner.nextLine();
             try{
-            System.out.println("Ingrese Stock del producto");
+                System.out.println("Ingrese Stock del producto");
                 this.stock= scanner.nextInt();
-                }
-                catch (InputMismatchException e){
-                    System.out.println("Debe ingresar un numero");
-                }
-                catch (Exception e){
-                    e.getMessage();
-                }}
+            }
+            catch (InputMismatchException e){
+                System.out.println("Debe ingresar un numero");
+            }
+            catch (Exception e){
+                e.getMessage();
+            }}
+
+        while (this.precio==0){
+            scanner.nextLine();
+            try{
+                System.out.println("Ingrese precio del producto");
+                this.precio= scanner.nextInt();
+            }
+            catch (InputMismatchException e){
+                System.out.println("Debe ingresar un numero, seguido de una coma y los decimales");
+            }
+            catch (Exception e){
+                e.getMessage();
+            }}
 
     }
 
@@ -64,14 +79,18 @@ public class Producto {
         this.stock = stock;
     }
 
+    public double getPrecio() { return precio;}
+
+    public void setPrecio(int precio) { this.precio = precio;}
 
     ///endregion
 
     @Override
     public String toString() {
-        return "\n Producto{" +
-               " " +nombreProducto +
+        return "Producto{" +
+                "nombreProducto='" + nombreProducto + '\'' +
                 ", stock=" + stock +
+                ", precio=" + precio +
                 '}';
     }
 

@@ -3,20 +3,17 @@ package domain;
 
 import domain.ListaGenerica;
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
-public class Tienda {
+public class Tienda implements Billetera{
 
     private ArrayList<Producto> productos;
     private int caja;
 
 
-    public Tienda(ArrayList<Producto> productos, int caja) {
+    public Tienda(ArrayList<Producto> productos) {
         this.productos = productos;
-        this.caja = caja;
+        initBilletera();
     }
 
     public ArrayList<Producto> getProductos() {
@@ -44,6 +41,7 @@ public class Tienda {
             scanner.nextLine();
 
             try{
+                verSaldo();
                 System.out.println("Ingrese la cantidad a retirar");
                 cantidad = scanner.nextInt();
             }catch (InputMismatchException e){                      ///verifica que se haya ingresado un numero
@@ -53,12 +51,13 @@ public class Tienda {
             }
         }
 
-        if (caja>cantidad){                                   ///verifica que el monto sea menor al existente en caja
-            caja-=cantidad;}
-        else{
-            System.out.println("El monto indicado es mayor al existente en la caja");
+       boolean retiro = pagar(cantidad);                                    ///utilizo la interfaz billetera
+        if (retiro){
+            System.out.println("Retiro de caja registrado");
+            verSaldo();
+        }else { System.out.println("El monto indicado es mayor al existente en la caja");
+                verSaldo();
         }
-        System.out.println("Retiro de caja registrado");
     }
 
     public void reponerCaja (){
@@ -80,9 +79,8 @@ public class Tienda {
             }
         }
 
-            caja+=cantidad;
-
-        System.out.println("Reposicion de caja registrada");
+            agregar(cantidad);                        ///utilizo la funcion de la interfaz billetera
+            System.out.println("Reposicion de caja registrada");
 
     }
 
@@ -124,7 +122,9 @@ public class Tienda {
 
             if (cantidad < productos.get(id).stock) {            ///verifica que haya stock suficiente
 
-                productos.get(id).stock-=cantidad;
+                System.out.println("Venta realizada");
+                productos.get(id).stock-=cantidad;                ///si es asi, resto la cantidad vendida al stock de la tienda
+                agregar(productos.get(id).precio*cantidad);///y agrego el precio de la venta a la caja
             } else { System.out.println("Stock insuficiente");
             }
 
@@ -230,12 +230,44 @@ public class Tienda {
 
        }}
 
+    ///region Metodos Billetera
+
+    @Override
+    public void initBilletera() {
+        this.caja = 10000;               ///Inicializo la caja en 10.000
+    }
+
+    @Override
+    public boolean pagar(int debito) {  ///Utilizo la funcion pagar para retirar de la caja
+
+        if (caja>debito){                                   ///verifica que el monto sea menor al existente en caja
+            caja-=debito;}
+        else{
+            return false;
+        }
+         return true;}
+
+
+    @Override
+    public void agregar(int credito) {  ///Utilizo la funcion pagar para cobrar y reponer la caja
+       caja += credito;
+       verSaldo();
+
+        }
+
+    @Override
+    public void verSaldo() {
+       System.out.println("El Saldo actual de la caja es: $" + caja);
+    }
+
+    ///endregion
+
 
     @Override
     public String toString() {
         return "Tienda{" +
                 "productos=" + productos +
-                "\n caja=" + caja +
+                ", caja=" + caja +
                 '}';
     }
 }
