@@ -79,6 +79,9 @@ public class Persona implements Billetera{
 
     }
 
+    public int getDni() {
+        return dni;
+    }
 
     @Override
     public String toString() {
