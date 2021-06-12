@@ -7,7 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ListaGenerica<T> extends Persona {
+public class ListaGenerica<T>{
 
 	ArrayList<T> lista;
 
@@ -74,7 +74,7 @@ public class ListaGenerica<T> extends Persona {
 		}
 		return null;
 	}
-
+/*
 	public JSONArray levantarJson() throws JSONException {
 		JSONArray listArray = new JSONArray();
 		JsonUtil utiles = new JsonUtil();
@@ -87,6 +87,6 @@ public class ListaGenerica<T> extends Persona {
 		JSONArray arregloJson = new JSONArray(respuesta);
 		utiles.grabarJson(arregloJson);
 		return arregloJson;
-	}
+	}*/
 
 }

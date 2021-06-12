@@ -1,10 +1,13 @@
 package domain;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import excepciones.LimiteExcepcion;
+
+import javax.rmi.CORBA.Tie;
 
 public class GYM {
 
@@ -17,6 +20,7 @@ public class GYM {
 	ListaGenerica<Persona> listaProfesor;
 	ListaGenerica<Turno> listaTurnos;
 	ListaGenerica<Persona> listaClienteConDeudas;
+	Tienda tienda;
 
 	// CONTRUCTOR
 
@@ -25,6 +29,7 @@ public class GYM {
 		listaProfesor = new ListaGenerica<>();
 		listaTurnos = new ListaGenerica<>();
 		listaClienteConDeudas = new ListaGenerica<>();
+		tienda = new Tienda(new ArrayList<Producto>());
 	}
 
 	// Agregar
@@ -207,14 +212,119 @@ public class GYM {
 		listaTurnos.Buscar_en_Lista(horario).BorrarCliente(persona);
 	}
 
-	public void Vender_Productos() // Tienda
-	{
+
+
+	/// FUNCIONES TIENDA
+
+
+	public void Vender_Producto() {
+
+		tienda.mostrarIdProductos();                                            ///se muestran los id de los productos
+
+		Scanner scanner = new Scanner(System.in);
+
+		int id = -1;
+		int cantidad = 0;
+
+		while (id == -1) {
+			scanner.nextLine();
+			try {
+				System.out.println("Ingrese el Id del producto a vender"); ///se pide el id del producto a vender
+				id = scanner.nextInt();
+			} catch (InputMismatchException e) {
+				System.out.println("Debe ingresar un numero");           ///se verifica que se haya ingresado un num
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+
+		}
+
+		if (tienda.getProductos().size() >= id) {                 /// verifica que el id exista, si existe continua
+
+			while (cantidad == 0) {
+				scanner.nextLine();
+				try {
+					System.out.println("Ingrese cantidad a vender");
+					cantidad = scanner.nextInt();
+				} catch (InputMismatchException e) {
+					System.out.println("Debe ingresar un numero");
+				} catch (Exception e) {
+					System.out.println(e.getMessage());
+				}
+			}
+
+			if (cantidad <= tienda.getProductos().get(id).stock) {            ///verifica que haya stock suficiente
+
+				System.out.println("Venta realizada");
+				tienda.getProductos().get(id).stock-=cantidad;                ///si es asi, resto la cantidad vendida al stock de la tienda
+				tienda.agregar(tienda.getProductos().get(id).precio*cantidad);///y agrego el precio de la venta a la caja
+			} else { System.out.println("Stock insuficiente");
+			}
+
+		}else{ System.out.println("Id inexistente");
+		}
+
 
 	}
 
-	public void Reponer_Stock()// Tienda
-	{
+	public void Reponer_Stock() {
 
+		tienda.mostrarIdProductos();                                            ///se muestran los id de los productos
+		/// para los id de los productos uso el indice
+		Scanner scanner = new Scanner(System.in);                        ///en la lista
+
+		int id = -1;
+		int cantidad = 0;
+
+		while (id == -1) {
+			scanner.nextLine();
+			try {
+				System.out.println("Ingrese el Id del producto a reponer"); ///se pide el id del producto a vender
+				id = scanner.nextInt();
+			} catch (InputMismatchException e) {
+				System.out.println("Debe ingresar un numero");           ///se verifica que se haya ingresado un num
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+
+		}
+
+		if (tienda.getProductos().size() >= id) {                 /// verifica que el id exista, si existe continua
+
+			while (cantidad == 0) {
+				scanner.nextLine();
+				try {
+					System.out.println("Ingrese cantidad a reponer");
+					cantidad = scanner.nextInt();
+				} catch (InputMismatchException e) {
+					System.out.println("Debe ingresar un numero");
+				} catch (Exception e) {
+					System.out.println(e.getMessage());
+				}
+			}
+
+			tienda.getProductos().get(id).stock += cantidad;
+			System.out.println("Stock repuesto");
+
+
+		} else {
+			System.out.println("Id inexistente");
+		}
+	}
+
+	public void Agregar_Producto (Producto productoAgregado){
+
+		boolean existe = false;
+
+		for (Producto producto: tienda.getProductos()
+		) {
+			if (productoAgregado.getNombreProducto().equals(producto.getNombreProducto())) {
+				System.out.println("El producto que desea agregar ya existe en la tienda");
+				existe=true;
+			}
+		}
+		if (!existe){
+			tienda.getProductos().add(productoAgregado);}
 	}
 
 	public void Cetificado_De_Salud()// Cliente
