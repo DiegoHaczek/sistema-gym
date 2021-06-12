@@ -7,7 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ListaGenerica<T> extends Persona {
+public class ListaGenerica<T> {
 
 	ArrayList<T> lista;
 
