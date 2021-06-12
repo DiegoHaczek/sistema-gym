@@ -21,6 +21,16 @@ public class Persona implements Billetera{
     }
     public int getDeuda() { return deuda; }
 
+    public Persona(String nombre, String apellido, int dni, char genero, int edad, int celular) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.genero = genero;
+        this.edad = edad;
+        this.celular = celular;
+        initBilletera();
+    }
+
     public void crearPersona(){
         Scanner scanner = new Scanner(System.in);
 

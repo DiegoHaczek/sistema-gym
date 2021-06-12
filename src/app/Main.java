@@ -1,13 +1,12 @@
 package app;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
 
-import domain.GYM;
-import domain.Profesor;
-import domain.Turno;
+import domain.*;
 
 public class Main {
 	public static void main(String[] args) {
@@ -19,9 +18,9 @@ public class Main {
 
 		GYM gym;
 
-		gym.AgregarPersona(new Profesor("");
+		gym.AgregarPersona(new Profesor("Hector","Sosa",35749547,'H',35,223548743, Disciplina.MUSCULACION);
 
-		gym.AgregarPersona(new Cliente("");
+		gym.AgregarPersona(new Cliente("Juan","Perez",44748146,'H',18,223548743, LocalDate.now()));
 
 		gym.AgregarTurno(new Turno(9:00, new Profesor("")));
 		

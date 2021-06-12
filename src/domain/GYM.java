@@ -327,11 +327,8 @@ public class GYM {
 			tienda.getProductos().add(productoAgregado);}
 	}
 
-	public void Cetificado_De_Salud()// Cliente
-	{
 
-	}
-
+	/*
 	public JSONArray levantarJson() throws JSONException {
 		JSONArray listArray = new JSONArray();
 		JsonUtil utiles = new JsonUtil();
@@ -345,5 +342,7 @@ public class GYM {
 		utiles.grabarJson(arregloJson);
 		return arregloJson;
 	}
+
+	 */
 
 }

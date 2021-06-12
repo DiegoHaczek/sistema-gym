@@ -7,7 +7,6 @@ public class Cliente extends Persona {
 
 
     private LocalDate fechaIngreso;
-    private boolean certificadoSalud;
     private FrecuenciaPago frecuenciaPago;
 
     private Map<FrecuenciaPago,Integer> mapaPrecios = new HashMap<>();
@@ -15,17 +14,19 @@ public class Cliente extends Persona {
     public Cliente(){
         super();
         fechaIngreso = LocalDate.now();
-        certificadoSalud = false;
         iniciarDatos();
     }
 
-    public Cliente(LocalDate fechaIngreso, boolean certificadoSalud){
+    public Cliente(LocalDate fechaIngreso){
         super();
         this.fechaIngreso = fechaIngreso;
-        this.certificadoSalud = certificadoSalud;
         iniciarDatos();
     }
 
+    public Cliente(String nombre, String apellido, int dni, char genero, int edad, int celular, LocalDate fechaIngreso) {
+        super(nombre,apellido,dni,genero,edad,celular);
+        this.fechaIngreso = fechaIngreso;
+    }
 
     private void iniciarDatos(){
 
@@ -88,7 +89,6 @@ public class Cliente extends Persona {
         return "Cliente[ " + super.toString() +
                 "deuda=" + deuda +
                 ", fechaIngreso=" + fechaIngreso +
-                ", certificadoSalud=" + certificadoSalud +
                 ", frecuenciaPago=" + frecuenciaPago +
                 ", saldo=" + saldo +
                 ']';

@@ -1,5 +1,6 @@
 package domain;
 
+import java.time.LocalDate;
 import java.util.Random;
 
 public class Profesor extends Persona{
@@ -14,6 +15,11 @@ public class Profesor extends Persona{
     public Profesor(Disciplina disciplina){
         super();
         this.disciplina = disciplina;
+    }
+    public Profesor(String nombre, String apellido, int dni, char genero, int edad, int celular, Disciplina disciplina) {
+        super(nombre,apellido,dni,genero,edad,celular);
+        this.disciplina = disciplina;
+
     }
 
     private void iniciarDatos(){
