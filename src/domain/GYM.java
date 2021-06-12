@@ -188,7 +188,7 @@ public class GYM {
 
 	public boolean Incribirse_A_Turnos(LocalTime horario, Cliente cliente)// turnos
 	{
-		// ver si al retorno un puntero donde lo modifica de una
+	
 		if (listaTurnos.Buscar_en_Lista(horario) != null) {
 			if (listaTurnos.Buscar_en_Lista(horario).getEstaLleno()) {
 				listaTurnos.Buscar_en_Lista(horario).AgregarCliente(cliente);
@@ -208,7 +208,7 @@ public class GYM {
 
 	public void Cancelar_Turno(LocalTime horario, Persona persona)// Turnos
 	{
-		// ver si al retorno un puntero donde lo modifica de una
+	
 		listaTurnos.Buscar_en_Lista(horario).BorrarCliente(persona);
 	}
 
@@ -330,6 +330,20 @@ public class GYM {
 	public void Cetificado_De_Salud()// Cliente
 	{
 
+	}
+
+	public JSONArray levantarJson() throws JSONException {
+		JSONArray listArray = new JSONArray();
+		JsonUtil utiles = new JsonUtil();
+		JSONObject jsonObject = new JSONObject();
+
+		for (T e : lista) {
+			listArray.put(e.getFormatoJSON());
+		}
+		String respuesta = listArray.toString();
+		JSONArray arregloJson = new JSONArray(respuesta);
+		utiles.grabarJson(arregloJson);
+		return arregloJson;
 	}
 
 }
