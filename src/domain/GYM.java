@@ -36,7 +36,7 @@ public class GYM {
 
 	public void AgregarPersona(Persona persona) // Usamos un solo agregar
 	{
-		if (persona instanceof Cliente) {
+		if (persona instanceof Profesor) {
 			listaProfesor.Agregar_A_lista(persona);
 		} else {
 			listaCliente.Agregar_A_lista(persona);
