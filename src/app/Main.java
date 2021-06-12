@@ -5,6 +5,11 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
 
+import domain.Cliente;
+import domain.GYM;
+import domain.Profesor;
+import domain.Turno;
+
 public class Main {
 	public static void main(String[] args) {
 		int op;
@@ -13,6 +18,16 @@ public class Main {
 		int opint2;
 		boolean b = true;
 
+
+		GYM gym;
+
+		gym.AgregarPersona(new Cliente(""));
+
+
+		gym.AgregarPersona(new Profesor(""));
+
+
+		gym.AgregarTurno(new Turno(9:00, new Profesor("")));
 
 		
 		while (true) {

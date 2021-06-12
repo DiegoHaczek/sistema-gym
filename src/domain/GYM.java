@@ -31,7 +31,7 @@ public class GYM {
 
 	public void AgregarPersona(Persona persona) // Usamos un solo agregar
 	{
-		if (persona instanceof Cliente) {
+		if (persona instanceof Profesor) {
 			listaProfesor.Agregar_A_lista(persona);
 		} else {
 			listaCliente.Agregar_A_lista(persona);
@@ -183,7 +183,7 @@ public class GYM {
 
 	public boolean Incribirse_A_Turnos(LocalTime horario, Cliente cliente)// turnos
 	{
-		// ver si al retorno un puntero donde lo modifica de una
+	
 		if (listaTurnos.Buscar_en_Lista(horario) != null) {
 			if (listaTurnos.Buscar_en_Lista(horario).getEstaLleno()) {
 				listaTurnos.Buscar_en_Lista(horario).AgregarCliente(cliente);
@@ -203,7 +203,7 @@ public class GYM {
 
 	public void Cancelar_Turno(LocalTime horario, Persona persona)// Turnos
 	{
-		// ver si al retorno un puntero donde lo modifica de una
+	
 		listaTurnos.Buscar_en_Lista(horario).BorrarCliente(persona);
 	}
 
