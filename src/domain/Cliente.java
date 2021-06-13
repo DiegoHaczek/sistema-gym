@@ -1,31 +1,32 @@
 package domain;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Cliente extends Persona {
 
-
     private LocalDate fechaIngreso;
     private FrecuenciaPago frecuenciaPago;
 
-    private Map<FrecuenciaPago,Integer> mapaPrecios = new HashMap<>();
+    private Map<FrecuenciaPago, Integer> mapaPrecios = new HashMap<>();
+    //FORMATO DD/MM/AA PARA LA FECHA DE INGRESO
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/u");
 
+    //CONSTRUCTORES
     public Cliente(){
         super();
         fechaIngreso = LocalDate.now();
         iniciarDatos();
     }
 
-    public Cliente(LocalDate fechaIngreso){
-        super();
-        this.fechaIngreso = fechaIngreso;
-        iniciarDatos();
-    }
-
     public Cliente(String nombre, String apellido, int dni, char genero, int edad, int celular, LocalDate fechaIngreso) {
         super(nombre,apellido,dni,genero,edad,celular);
         this.fechaIngreso = fechaIngreso;
+        iniciarDatos();
     }
 
     private void iniciarDatos(){
@@ -83,12 +84,25 @@ public class Cliente extends Persona {
 
     }
 
+    public JSONObject getFormatoJSON() throws JSONException {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("nombre", super.getNombre());
+        jsonObject.put("apellido", super.getApellido());
+        jsonObject.put("dni", super.getDni());
+        jsonObject.put("genero", super.getGenero());
+        jsonObject.put("edad", super.getEdad());
+        jsonObject.put("celular", super.getEdad());
+        jsonObject.put("frecuencia de pago",frecuenciaPago);
+        jsonObject.put("fecha de ingreso",fechaIngreso.format(formatter));
+        return jsonObject;
+    }
+
 
     @Override
     public String toString() {
         return "Cliente[ " + super.toString() +
                 "deuda=" + deuda +
-                ", fechaIngreso=" + fechaIngreso +
+                ", fechaIngreso=" + fechaIngreso.format(formatter) +
                 ", frecuenciaPago=" + frecuenciaPago +
                 ", saldo=" + saldo +
                 ']';

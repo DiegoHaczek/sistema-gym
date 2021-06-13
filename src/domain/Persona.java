@@ -3,6 +3,8 @@ package domain;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class Persona implements Billetera{
 
@@ -16,10 +18,21 @@ public class Persona implements Billetera{
     protected int saldo = 0;
     protected int deuda = 0;
 
+
+    //GETTERS Y SETTERS
+    public String getNombre() { return nombre; }
+    public String getApellido() { return apellido; }
+    public int getDni() { return dni; }
+    public char getGenero() { return genero; }
+    public int getEdad() { return edad; }
+    public int getCelular() { return celular; }
+    public int getSaldo() { return saldo; }
+    public int getDeuda() { return deuda; }
+
+    //CONSTRUCTORES
     public Persona() {
         crearPersona();
     }
-    public int getDeuda() { return deuda; }
 
     public Persona(String nombre, String apellido, int dni, char genero, int edad, int celular) {
         this.nombre = nombre;
@@ -30,6 +43,7 @@ public class Persona implements Billetera{
         this.celular = celular;
         initBilletera();
     }
+
 
     public void crearPersona(){
         Scanner scanner = new Scanner(System.in);
@@ -89,8 +103,15 @@ public class Persona implements Billetera{
 
     }
 
-    public int getDni() {
-        return dni;
+    public JSONObject getFormatoJSON() throws JSONException {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("nombre", nombre);
+        jsonObject.put("apellido", apellido);
+        jsonObject.put("dni", dni);
+        jsonObject.put("genero", genero);
+        jsonObject.put("edad", edad);
+        jsonObject.put("celular", celular);
+        return jsonObject;
     }
 
     @Override

@@ -161,9 +161,12 @@ public class GYM {
 	 * listaClienteConDeudas.json(); } public void ArchivarJson() {
 	 * listaCliente.json(); listaProfesor.json(); listaClienteConDeudas.json(); }
 	 */
-	public void Chequear_deuda()// Lista la deuda actual tiene el cliente
-	{
 
+	//FUNCIONES CLIENTES
+
+	public void Chequear_deuda(Cliente cliente)// Lista la deuda actual tiene el cliente
+	{
+		System.out.println("La deuda de " + cliente.getNombre() + "es $" + cliente.getDeuda());
 	}
 
 	public void Dar_De_baja()// de la lista Cliente que pasan a la lista deudores
