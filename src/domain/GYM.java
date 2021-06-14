@@ -91,16 +91,16 @@ public class GYM {
 					e.getMessage();
 				}
 				if (listaProfesor.lista != null) {
-
+					boolean existe = false;
 					for (Persona profesor : listaProfesor.lista) {
 						if (profesor.getDni() == dni) {
 							listaProfesor.lista.remove(profesor);
 							System.out.println("Profesor Borrado");
+							existe=true;
 							break; /// Corto el ciclo una vez encontrado
-						} else {
-							System.out.println("No existe un profesor con ese DNI");
 						}
-					}
+					}if (!existe) {System.out.println("No existe un profesor con ese DNI");}
+
 				}
 			}
 			if (rta == 2) {
@@ -115,15 +115,16 @@ public class GYM {
 					e.getMessage();
 				}
 				if (listaCliente.lista != null) {
+					boolean existe = false;
 					for (Persona cliente : listaCliente.lista) {
 						if (cliente.getDni() == dni) {
 							listaCliente.lista.remove(cliente);
 							System.out.println("Cliente Borrado");
+							existe=true;
 							break;
-						} else {
-							System.out.println("No existe un cliente con ese DNI");
 						}
-					}
+
+					}if (!existe){ System.out.println("No existe un cliente con ese DNI"); }
 				}
 
 			}
@@ -253,6 +254,9 @@ public class GYM {
 
 	/// FUNCIONES TIENDA
 
+	public void Ver_Tienda (){ System.out.println(tienda);
+	}
+
 	public void Vender_Producto() {
 
 		tienda.mostrarIdProductos(); /// se muestran los id de los productos
@@ -364,6 +368,86 @@ public class GYM {
 			tienda.getProductos().add(productoAgregado);
 		}
 	}
+
+	public void Quitar_Producto (){
+
+		tienda.mostrarIdProductos();
+		int id=-1;
+
+		Scanner scanner = new Scanner(System.in);
+
+		while (id==-1) {
+			scanner.nextLine();
+
+			try{
+				System.out.println("Ingrese id del producto a quitar");
+				id = scanner.nextInt();
+			}
+			catch (InputMismatchException e){
+				System.out.println("Debe ingresar un numero");
+			}
+		}
+
+		if (tienda.getProductos().size()>=id){
+			tienda.getProductos().remove(id);
+			System.out.println("Producto removido");}
+		else { System.out.println("Id inexistente");
+
+		}
+	}
+
+	public void Retirar_De_Caja (){
+		Scanner scanner = new Scanner(System.in);
+		int cantidad = 0;
+
+		while (cantidad==0){
+
+			scanner.nextLine();
+
+			try{
+				tienda.verSaldo();
+				System.out.println("Ingrese la cantidad a retirar");
+				cantidad = scanner.nextInt();
+			}catch (InputMismatchException e){                      ///verifica que se haya ingresado un numero
+				System.out.println("Debe ingresar un numero");
+			}catch (Exception e){
+				e.getMessage();
+			}
+		}
+
+		boolean retiro = tienda.pagar(cantidad);                                    ///utilizo la interfaz billetera
+		if (retiro){
+			System.out.println("Retiro de caja registrado");
+			tienda.verSaldo();
+		}else { System.out.println("El monto indicado es mayor al existente en la caja");
+			tienda.verSaldo();
+		}
+	}
+
+	public void Reponer_Caja (){
+
+		Scanner scanner = new Scanner(System.in);
+		int cantidad = 0;
+
+		while (cantidad==0){
+
+			scanner.nextLine();
+
+			try{
+				System.out.println("Ingrese la cantidad a reponer");
+				cantidad = scanner.nextInt();
+			}catch (InputMismatchException e){                      ///verifica que se haya ingresado un numero
+				System.out.println("Debe ingresar un numero");
+			}catch (Exception e){
+				e.getMessage();
+			}
+		}
+
+		tienda.agregar(cantidad);                        ///utilizo la funcion de la interfaz billetera
+		System.out.println("Reposicion de caja registrada");
+
+	}
+
 
 	/*
 	 * public JSONArray levantarJson() throws JSONException { JSONArray listArray =

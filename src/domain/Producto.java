@@ -87,8 +87,8 @@ public class Producto {
 
     @Override
     public String toString() {
-        return "Producto{" +
-                "nombreProducto='" + nombreProducto + '\'' +
+        return "\n                   {"
+                + nombreProducto +
                 ", stock=" + stock +
                 ", precio=" + precio +
                 '}';
