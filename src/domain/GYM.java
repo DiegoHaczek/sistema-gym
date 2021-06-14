@@ -1,11 +1,8 @@
 package domain;
 
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
-import excepciones.LimiteExcepcion;
 
 //import javax.rmi.CORBA.Tie;
 
@@ -22,9 +19,10 @@ public class GYM {
 	ListaGenerica<Persona> listaClienteConDeudas;
 	Tienda tienda;
 
-	// CONTRUCTOR
+	// CONSTRUCTOR
 
 	public GYM() {
+
 		listaCliente = new ListaGenerica<>();
 		listaProfesor = new ListaGenerica<>();
 		listaTurnos = new ListaGenerica<>();
@@ -32,7 +30,7 @@ public class GYM {
 		tienda = new Tienda(new ArrayList<Producto>());
 	}
 
-	// Agregar
+	//region AGREGAR
 
 	public void AgregarPersona(Persona persona) // Usamos un solo agregar
 	{
@@ -48,7 +46,9 @@ public class GYM {
 		listaTurnos.Agregar_A_lista(turno);
 	}
 
-	// LISTAR
+	//endregion
+
+	//region LISTAR
 
 	public void ListarCliente() {
 		listaCliente.Listar();
@@ -62,7 +62,9 @@ public class GYM {
 		listaTurnos.Listar();
 	}
 
-	// BORRAR
+	//endregion
+
+	//region BORRAR
 
 	public void BorrarPersona() {
 		Scanner scanner = new Scanner(System.in);
@@ -184,13 +186,16 @@ public class GYM {
 		return null;
 	}
 
+
+	//endregion
+
 	/*
 	 * public void LevantarJson() { listaCliente.json(); listaProfesor.json();
 	 * listaClienteConDeudas.json(); } public void ArchivarJson() {
 	 * listaCliente.json(); listaProfesor.json(); listaClienteConDeudas.json(); }
 	 */
 
-	//FUNCIONES CLIENTES
+	//regionFUNCIONES CLIENTES
 
 	public void Chequear_deuda(Cliente cliente)// Lista la deuda actual tiene el cliente
 	{
@@ -215,9 +220,11 @@ public class GYM {
 		}
 	}
 
-	// FUNCIONES TURNOS
+	//endregion
 
-	public boolean Incribirse_A_Turnos(Integer horario, Persona persona)// turnos
+	//region FUNCIONES TURNOS
+
+	public boolean Inscribirse_A_Turnos(Integer horario, Persona persona)// turnos
 	{
 		for (Turno e : listaTurnos.lista) {
 			if (e.getHorario() == horario) {
@@ -237,7 +244,7 @@ public class GYM {
 	public void Cambiar_De_Turnos(Persona persona, Integer horarioActual, Integer horarioNuevo)// Turnos
 	{
 		Cancelar_Turno(horarioActual, persona);
-		Incribirse_A_Turnos(horarioNuevo, persona);
+		Inscribirse_A_Turnos(horarioNuevo, persona);
 	}
 
 	public void Cancelar_Turno(Integer horarioActual, Persona persona)// Turnos
@@ -252,7 +259,9 @@ public class GYM {
 		}
 	}
 
-	/// FUNCIONES TIENDA
+	//endregion
+
+	//region FUNCIONES TIENDA
 
 	public void Ver_Tienda (){ System.out.println(tienda);
 	}
@@ -354,6 +363,50 @@ public class GYM {
 		}
 	}
 
+	public void Cambiar_Precio() {
+
+		Scanner scanner = new Scanner(System.in);
+
+		int id = -1;
+		int precio = 0;
+
+		while (id == -1) {
+			scanner.nextLine();
+			try {
+				System.out.println("Ingrese el Id del producto a cambiar de precio");
+				tienda.mostrarIdProductos();
+				id = scanner.nextInt();
+			} catch (InputMismatchException e) {
+				System.out.println("Debe ingresar un numero"); /// se verifica que se haya ingresado un num
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+
+		}
+
+		if (tienda.getProductos().size() >= id) { /// verifica que el id exista, si existe continua
+
+			while (precio == 0) {
+				scanner.nextLine();
+				System.out.println("Precio actual: " + tienda.getProductos().get(id).precio);
+				try {
+					System.out.println("Ingrese nuevo precio: ");
+					precio = scanner.nextInt();
+				} catch (InputMismatchException e) {
+					System.out.println("Debe ingresar un numero");
+				} catch (Exception e) {
+					System.out.println(e.getMessage());
+				}
+			}
+
+			tienda.getProductos().get(id).precio = precio;
+			System.out.println("Precio modificado");
+
+		} else {
+			System.out.println("Id inexistente");
+		}
+	}
+
 	public void Agregar_Producto(Producto productoAgregado) {
 
 		boolean existe = false;
@@ -448,7 +501,9 @@ public class GYM {
 
 	}
 
+	//endregion
 
+	
 	/*
 	 * public JSONArray levantarJson() throws JSONException { JSONArray listArray =
 	 * new JSONArray(); JsonUtil utiles = new JsonUtil(); JSONObject jsonObject =
