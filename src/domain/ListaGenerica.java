@@ -53,18 +53,18 @@ public class ListaGenerica<T>{
 		}
 	}
 
-	public T Buscar_en_Lista(LocalTime horario) {
+	/*public T Buscar_en_Lista(Integer horarioNuevo) {
 		Turno turno;
 		for (T e : lista) {
 			if (e instanceof Turno) {
 				turno = (Turno) e;
-				if (turno.getHorario() == horario) {
+				if (turno.getHorario() == horarioNuevo) {
 					return e;
 				}
 			}
 		}
 		return null;
-	}
+	}*/
 
 	public T Buscar_en_Lista(String apellido) {
 		for (T e : lista) {
@@ -73,6 +73,10 @@ public class ListaGenerica<T>{
 			 */
 		}
 		return null;
+	}
+
+	public ArrayList<T> Retorna_Lista(){
+		return lista;
 	}
 /*
 	public JSONArray levantarJson() throws JSONException {
