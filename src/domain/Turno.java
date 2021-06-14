@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Turno {
 
-    private LocalTime horario;
+    private Integer horario;
     private ArrayList<Persona> clientes;
     private Profesor profesor;
     private boolean estaLleno;
@@ -18,16 +18,16 @@ public class Turno {
     public Turno() {
     }
 
-    public Turno(LocalTime horario) {
+    public Turno(Integer horario) {
         this.horario = horario;
     }
 
-    public Turno(LocalTime horario, Profesor profesor) {
+    public Turno(Integer horario, Profesor profesor) {
         this.horario = horario;
         this.profesor = profesor;
     }
 
-    public Turno(LocalTime horario, Profesor profesor, ArrayList<Persona> clientes) {
+    public Turno(Integer horario, Profesor profesor, ArrayList<Persona> clientes) {
         this.horario = horario;
         this.clientes = clientes;
         this.profesor = profesor;
@@ -37,11 +37,11 @@ public class Turno {
 
     /// region getters y setters
 
-    public LocalTime getHorario() {
+    public Integer getHorario() {
         return horario;
     }
 
-    public void setHorario(LocalTime horario) {
+    public void setHorario(Integer horario) {
         this.horario = horario;
     }
 
@@ -50,15 +50,13 @@ public class Turno {
      * public ArrayList<Persona> AgregarCliente() { return clientes; }
      */
 
-    public boolean AgregarCliente(Persona persona) {
+    public void AgregarCliente(Persona persona) {
         for (Persona e : clientes) {
             if (e.equals(persona)) {
                 System.out.println("El cliente ya se encuentra en este turno");
-                return false;
             }
         }
         clientes.add(persona);
-        return true;
     }
 
     public void BorrarCliente(Persona persona) {
@@ -102,9 +100,16 @@ public class Turno {
 
     /// endregion
 
-    public String VerTurno() {
-        return "Turno{" + "horario=" + getHorario().getHour() + /// muestra solo la hora
+   /* public String VerTurno() {
+        return "Turno{" + "horario=" + getHorario() + /// muestra solo la hora
                 ", \n clientes=" + clientes + ",\n Vacantes=" + mostrarEstaLleno() + '}';
+    }*/
+
+    @Override
+    public String toString() {
+        return "Turno [clientes=" + clientes + ", estaLleno=" + estaLleno + ", horario=" + horario + ", profesor="
+                + profesor + "]";
     }
+
 
 }
