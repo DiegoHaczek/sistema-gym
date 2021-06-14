@@ -23,9 +23,10 @@ public class Cliente extends Persona {
         iniciarDatos();
     }
 
-    public Cliente(String nombre, String apellido, int dni, char genero, int edad, int celular, LocalDate fechaIngreso) {
+    public Cliente(String nombre, String apellido, int dni, char genero, int edad, int celular, LocalDate fechaIngreso,FrecuenciaPago frecuenciaPago) {
         super(nombre,apellido,dni,genero,edad,celular);
         this.fechaIngreso = fechaIngreso;
+        this.frecuenciaPago = frecuenciaPago;
         iniciarDatos();
     }
 
@@ -36,6 +37,7 @@ public class Cliente extends Persona {
         mapaPrecios.put(FrecuenciaPago.SEMANAL,1000);
         mapaPrecios.put(FrecuenciaPago.MENSUAL,2500);
 
+        /*
         //ELECCION DE FRECUENCIA DE PAGO
         int eleccionPago = 0;
         Scanner scanner = new Scanner(System.in);
@@ -68,6 +70,8 @@ public class Cliente extends Persona {
                 break;
         }
 
+         */
+
         //Creo la billetera
         super.initBilletera();
 
@@ -79,8 +83,6 @@ public class Cliente extends Persona {
             super.deuda += mapaPrecios.get(frecuenciaPago);
         }
 
-        //Muestro el saldo
-        super.verSaldo();
 
     }
 

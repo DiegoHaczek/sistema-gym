@@ -30,25 +30,25 @@ public class Main {
 		gym.AgregarPersona(new Profesor("Lucas", "Lopez", 3, 'H', 35, 223421122, Disciplina.MUSCULACION));
 		gym.AgregarPersona(new Profesor("Pedro", "Sgalla", 4, 'H', 35, 223421122, Disciplina.MUSCULACION));
 
-		gym.AgregarPersona(new Cliente("Juan", "Perez", 5, 'H', 18, 223421122, LocalDate.now()));
-		gym.AgregarPersona(new Cliente("Juana", "Matinez", 6, 'M', 18, 223421122, LocalDate.now()));
-		gym.AgregarPersona(new Cliente("Pablo", "Jose", 7, 'H', 18, 223421122, LocalDate.now()));
-		gym.AgregarPersona(new Cliente("Gonzalo", "Perez", 8, 'H', 18, 223421122, LocalDate.now()));
-		gym.AgregarPersona(new Cliente("Gaston", "Loel", 9, 'H', 18, 223421122, LocalDate.now()));
-		gym.AgregarPersona(new Cliente("Franco", "Valiente", 10, 'H', 18, 223421122, LocalDate.now()));
-		gym.AgregarPersona(new Cliente("Lucia", "Benoffi", 11, 'M', 18, 223421122, LocalDate.now()));
-		gym.AgregarPersona(new Cliente("Pedro", "Lopez", 12, 'H', 18, 223421122, LocalDate.now()));
-		gym.AgregarPersona(new Cliente("Sofia", "Piedra", 13, 'M', 18, 223421122, LocalDate.now()));
-		gym.AgregarPersona(new Cliente("Andrea", "Gonzales", 14, 'M', 18, 223421122, LocalDate.now()));
-		gym.AgregarPersona(new Cliente("Malena", "Polites", 15, 'M', 18, 223421122, LocalDate.now()));
-		gym.AgregarPersona(new Cliente("Carlos", "Fernandez", 16, 'H', 18, 223421122, LocalDate.now()));
-		gym.AgregarPersona(new Cliente("Ezequiel", "Valdes", 17, 'H', 18, 223421122, LocalDate.now()));
-		gym.AgregarPersona(new Cliente("Francisco", "Aguas", 18, 'H', 18, 223421122, LocalDate.now()));
-		gym.AgregarPersona(new Cliente("Nicolas", "Rodriguez", 19, 'H', 18, 223421122, LocalDate.now()));
-		gym.AgregarPersona(new Cliente("Elias", "Feliz", 21, 'H', 18, 223421122, LocalDate.now()));
-		gym.AgregarPersona(new Cliente("Enrique", "Rojo", 23, 'H', 18, 223421122, LocalDate.now()));
-		gym.AgregarPersona(new Cliente("Matias", "Azul", 24, 'H', 18, 223421122, LocalDate.now()));
-		gym.AgregarPersona(new Cliente("Cristian", "Maldis", 25, 'H', 18, 223421122, LocalDate.now()));
+		gym.AgregarPersona(new Cliente("Juan", "Perez", 5, 'H', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
+		gym.AgregarPersona(new Cliente("Juana", "Matinez", 6, 'M', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
+		gym.AgregarPersona(new Cliente("Pablo", "Jose", 7, 'H', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
+		gym.AgregarPersona(new Cliente("Gonzalo", "Perez", 8, 'H', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
+		gym.AgregarPersona(new Cliente("Gaston", "Loel", 9, 'H', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
+		gym.AgregarPersona(new Cliente("Franco", "Valiente", 10, 'H', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
+		gym.AgregarPersona(new Cliente("Lucia", "Benoffi", 11, 'M', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
+		gym.AgregarPersona(new Cliente("Pedro", "Lopez", 12, 'H', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
+		gym.AgregarPersona(new Cliente("Sofia", "Piedra", 13, 'M', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
+		gym.AgregarPersona(new Cliente("Andrea", "Gonzales", 14, 'M', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
+		gym.AgregarPersona(new Cliente("Malena", "Polites", 15, 'M', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
+		gym.AgregarPersona(new Cliente("Carlos", "Fernandez", 16, 'H', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
+		gym.AgregarPersona(new Cliente("Ezequiel", "Valdes", 17, 'H', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
+		gym.AgregarPersona(new Cliente("Francisco", "Aguas", 18, 'H', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
+		gym.AgregarPersona(new Cliente("Nicolas", "Rodriguez", 19, 'H', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
+		gym.AgregarPersona(new Cliente("Elias", "Feliz", 21, 'H', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
+		gym.AgregarPersona(new Cliente("Enrique", "Rojo", 23, 'H', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
+		gym.AgregarPersona(new Cliente("Matias", "Azul", 24, 'H', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
+		gym.AgregarPersona(new Cliente("Cristian", "Maldis", 25, 'H', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
 
 		gym.AgregarTurno(new Turno(9, new Profesor("Hector", "Sosa", 1, 'H', 35, 223548743, Disciplina.MUSCULACION)));
 		gym.AgregarTurno(new Turno(10, new Profesor("Jimena", "Fierro", 2, 'M', 35, 223548743, Disciplina.MUSCULACION)));
@@ -155,14 +155,14 @@ public class Main {
 						switch (op = scan.nextInt()) {
 							case 1:
 								persona= gym.BuscarClientePorDNI();
-								
+
 								if(persona == null){
 									System.out.println("Esta persona no esta es null");
 									break;
 								}
 								
 								//ver porque se rompe aca
-								if(gym.Incribirse_A_Turnos(9, persona) == true){
+								if(gym.Incribirse_A_Turnos(9, persona)){
 									System.out.println("Se ingresor a la persona");
 								}else{
 									System.out.println("LLega?3");

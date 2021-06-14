@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Turno {
 
     private Integer horario;
-    private ArrayList<Persona> clientes;
+    private ArrayList<Persona> clientes = new ArrayList<>();
     private Profesor profesor;
     private boolean estaLleno;
 
@@ -77,12 +77,13 @@ public class Turno {
     }
 
     public boolean getEstaLleno() { /// retorna que el turno esta completo si
-        estaLleno = false; /// ya hay mas de 10 clientes anotados
+        System.out.println(clientes.size());
         if (clientes.size() > 10) {
-            estaLleno = true;
+            return true;
         }
-
-        return estaLleno;
+        else{
+            return false;
+        }
     }
 
     public void setEstaLleno(boolean estaLleno) {

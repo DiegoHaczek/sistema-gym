@@ -160,7 +160,6 @@ public class GYM {
 		int dni = 0;
 		Scanner scanner = new Scanner(System.in);
 		while (dni == 0) {
-			scanner.nextLine();
 			try {
 				System.out.println("Ingrese el DNI del cliente a buscar");
 				dni = scanner.nextInt();
@@ -169,17 +168,18 @@ public class GYM {
 			} catch (Exception e) {
 				e.getMessage();
 			}
+
+			scanner.nextLine();
+
 			// creo que no va a retornar la lista
-			for (Persona cliente : listaCliente.Retorna_Lista()) {
+			for (Persona cliente : listaCliente.lista) {
 				if (cliente.getDni() == dni) {
 					System.out.println(cliente);
 					return cliente;
-
-				} else {
-					System.out.println("No existe un cliente con ese DNI");
 				}
 			}
 		}
+		System.out.println("No existe un cliente con ese DNI");
 		return null;
 	}
 
@@ -218,9 +218,7 @@ public class GYM {
 
 	public boolean Incribirse_A_Turnos(Integer horario, Persona persona)// turnos
 	{
-
 		for (Turno e : listaTurnos.lista) {
-
 			if (e.getHorario() == horario) {
 				if (e.getEstaLleno()){
 					System.out.println("Esta lleno Sorry");
