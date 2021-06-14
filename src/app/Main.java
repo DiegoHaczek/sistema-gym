@@ -199,35 +199,22 @@ public class Main {
 					while (estado2) {
 						System.out.println("");
 						System.out.println("Ingre una Opcion");
-						System.out.println("1: Ver Tienda");
-						System.out.println("2: Vender");
-						System.out.println("3: Agregar Producto");
-						System.out.println("4: Reponer Stock");
-						System.out.println("5: Reponer Caja");
-						System.out.println("6: Retirar de Caja");
+						System.out.println("1:");
+						System.out.println("2:");
+						System.out.println("3:");
 						System.out.println("0:Salir");
 						System.out.println("");
 						switch (op = scan.nextInt()) {
 							case 1:
-								gym.Ver_Tienda();
+
 								new java.util.Scanner(System.in).nextLine();
 								break;
 							case 2:
-								gym.Vender_Producto();
+
 								new java.util.Scanner(System.in).nextLine();
 								break;
 							case 3:
-								gym.Agregar_Producto(new Producto());
-								new java.util.Scanner(System.in).nextLine();
-								break;
 
-							case 4: gym.Reponer_Stock();
-								new java.util.Scanner(System.in).nextLine();
-								break;
-							case 5: gym.Reponer_Caja();
-								new java.util.Scanner(System.in).nextLine();
-								break;
-							case 6: gym.Retirar_De_Caja();
 								new java.util.Scanner(System.in).nextLine();
 								break;
 
