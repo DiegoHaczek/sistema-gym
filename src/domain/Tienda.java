@@ -51,12 +51,12 @@ public class Tienda implements Billetera{
             }
         }
 
-       boolean retiro = pagar(cantidad);                                    ///utilizo la interfaz billetera
+        boolean retiro = pagar(cantidad);                                    ///utilizo la interfaz billetera
         if (retiro){
             System.out.println("Retiro de caja registrado");
             verSaldo();
         }else { System.out.println("El monto indicado es mayor al existente en la caja");
-                verSaldo();
+            verSaldo();
         }
     }
 
@@ -79,8 +79,8 @@ public class Tienda implements Billetera{
             }
         }
 
-            agregar(cantidad);                        ///utilizo la funcion de la interfaz billetera
-            System.out.println("Reposicion de caja registrada");
+        agregar(cantidad);                        ///utilizo la funcion de la interfaz billetera
+        System.out.println("Reposicion de caja registrada");
 
     }
 
@@ -184,41 +184,41 @@ public class Tienda implements Billetera{
         boolean existe = false;
 
         for (Producto producto:productos
-             ) {
+        ) {
             if (productoAgregado.getNombreProducto().equals(producto.getNombreProducto())) {
                 System.out.println("El producto que desea agregar ya existe en la tienda");
                 existe=true;
             }
         }
         if (!existe){
-        productos.add(productoAgregado);}
+            productos.add(productoAgregado);}
     }
 
     public void quitarProducto (){
 
-      mostrarIdProductos();
-      int id=-1;
+        mostrarIdProductos();
+        int id=-1;
 
-      Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
-      while (id==-1) {
-          scanner.nextLine();
+        while (id==-1) {
+            scanner.nextLine();
 
-          try{
-          System.out.println("Ingrese id del producto a quitar");
-          id = scanner.nextInt();
-             }
+            try{
+                System.out.println("Ingrese id del producto a quitar");
+                id = scanner.nextInt();
+            }
             catch (InputMismatchException e){
                 System.out.println("Debe ingresar un numero");
             }
-      }
+        }
 
-      if (productos.size()>=id){
-         productos.remove(id);
-         System.out.println("Producto removido");}
-      else { System.out.println("Id inexistente");
+        if (productos.size()>=id){
+            productos.remove(id);
+            System.out.println("Producto removido");}
+        else { System.out.println("Id inexistente");
 
-      }
+        }
     }
 
     public void mostrarIdProductos (){
@@ -266,8 +266,9 @@ public class Tienda implements Billetera{
     @Override
     public String toString() {
         return "Tienda{" +
-                "productos=" + productos +
-                ", caja=" + caja +
+                "Productos=" + productos +
+                "\n\n                   " +
+                "Caja=" + caja +
                 '}';
     }
 }
