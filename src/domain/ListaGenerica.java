@@ -3,9 +3,7 @@ package domain;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+
 
 public class ListaGenerica<T>{
 
@@ -78,19 +76,6 @@ public class ListaGenerica<T>{
 	public ArrayList<T> Retorna_Lista(){
 		return lista;
 	}
-/*
-	public JSONArray levantarJson() throws JSONException {
-		JSONArray listArray = new JSONArray();
-		JsonUtil utiles = new JsonUtil();
-		JSONObject jsonObject = new JSONObject();
 
-		for (T e : lista) {
-			listArray.put(e.getFormatoJSON());
-		}
-		String respuesta = listArray.toString();
-		JSONArray arregloJson = new JSONArray(respuesta);
-		utiles.grabarJson(arregloJson);
-		return arregloJson;
-	}*/
-
+	
 }

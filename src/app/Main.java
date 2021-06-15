@@ -179,7 +179,6 @@ public class Main {
 								new java.util.Scanner(System.in).nextLine();
 								break;
 							case 4:
-								
 								gym.Ver_Turnos();
 								new java.util.Scanner(System.in).nextLine();
 								break;

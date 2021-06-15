@@ -20,9 +20,9 @@ public class JsonUtiles {
      * @param nombreDirectorio
      */
 
-    public void grabar(JSONArray array, String nombreDirectorio) {
+    public void grabar(JSONArray array) {
         try {
-            FileWriter file = new FileWriter(nombreDirectorio);
+            FileWriter file = new FileWriter("registro.json");
             file.write(array.toString());
             file.flush();
             file.close();
