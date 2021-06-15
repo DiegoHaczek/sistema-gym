@@ -219,7 +219,7 @@ public class GYM {
 		for (Turno e : listaTurnos.lista) {
 
 			if (e.getHorario() == horario) {
-				if (e.getEstaLleno()){
+				if (e.getEstaLleno()) {
 					System.out.println("Esta lleno Sorry");
 					return false;
 				} else {
@@ -364,15 +364,46 @@ public class GYM {
 		}
 	}
 
-	/*
-	 * public JSONArray levantarJson() throws JSONException { JSONArray listArray =
+
+
+	/*public JSONArray levantarJson() throws JSONException { JSONArray listArray =
 	 * new JSONArray(); JsonUtil utiles = new JsonUtil(); JSONObject jsonObject =
 	 * new JSONObject();
 	 * 
 	 * for (T e : lista) { listArray.put(e.getFormatoJSON()); } String respuesta =
 	 * listArray.toString(); JSONArray arregloJson = new JSONArray(respuesta);
-	 * utiles.grabarJson(arregloJson); return arregloJson; }
-	 * 
-	 */
+	 * utiles.grabarJson(arregloJson); return arregloJson; }*
 
+	public void Levantar_ALL() throws JSONException {
+		JSONArray listaArray = new JSONArray();
+		JsonUtil utiles = new JsonUtil();
+		listaArray.put(avionGuerra.levantarJson());
+		listaArray.put(avionPrivado.levantarJson());
+		listaArray.put(avionCargas.levantarJson());
+		listaArray.put(avionComercial.levantarJson());
+		String repuesta = listaArray.toString();
+		JSONArray arregloJson = new JSONArray(repuesta);
+		utiles.grabarJson(arregloJson);
+		System.out.println(arregloJson);
+
+	}
+
+	public String Pasar_A_JSON_Lista() {
+		JSONArray ListJson = new JSONArray(ListaHelado);
+		JSONArray ListJson2 = new JSONArray(ListaHelado);
+		return ListJson.toString();
+	}*/
+
+
+	/*public String devuelveToString(){
+	
+		JSONArray jsonArray = new JSONArray();
+		JSONObject myObject = new JSONObject();
+	
+		myObject = devuelveObj();
+	
+		jsonArray.put(myObject);
+	
+		return jsonArray.toString();
+	}*/
 }
