@@ -63,9 +63,9 @@ public class Main {
 			System.out.println("2:Cliente");
 			System.out.println("3:Turnos");
 			System.out.println("4:Tienda");
-			System.out.println("5:");
-			System.out.println("6:");
-			System.out.println("7:");
+			System.out.println("5: Listar");
+			System.out.println("6: Planilla de Caja");
+			System.out.println("7: Modificar valor Articulos");
 			System.out.println("0:Salir");
 			System.out.println("");
 
@@ -161,8 +161,7 @@ public class Main {
 									break;
 								}
 								
-								//ver porque se rompe aca
-								if(gym.Incribirse_A_Turnos(9, persona)){
+								if(gym.Inscribirse_A_Turnos(9, persona)){
 									System.out.println("Se ingresor a la persona");
 								}else{
 									System.out.println("LLega?3");
