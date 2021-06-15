@@ -191,6 +191,17 @@ public class GYM {
 	}
 
 
+		/*
+       for (i=0;i<=turno.getClientes().size();i++){					//y dentro de cada turno recorro su arreglo
+		if (turno.getClientes().get(i).getDni()==cliente.getDni()){ //de clientes
+			horario=turno.getHorario();
+
+		}		*/
+
+
+
+
+
 	//endregion
 
 	/*
@@ -266,13 +277,46 @@ public class GYM {
 	{
 		for (Turno e : listaTurnos.lista) {
 
-			if (e.getEstaLleno()) {
 				if (e.getHorario() == horarioActual) {
 					e.BorrarCliente(persona);
 				}
-			}
+
 		}
 	}
+
+	public int Elegir_Turno (){
+		int horario=0;
+		Ver_Turnos();
+		Scanner scanner = new Scanner(System.in);
+
+		while(horario==0) {
+			try {
+				System.out.println("Ingrese el horario del turno elegido");
+				horario = scanner.nextInt();
+
+			} catch (InputMismatchException e) {
+				System.out.println("Debe ingresar un numero");
+			}
+		}
+
+	return horario;}
+	
+	public int Buscar_Turno_Por_Cliente (Persona clienteBuscado)  ///recibe la persona y te dice en que turno esta
+	{
+		int horario=0;
+		int i=0;
+
+		for (Turno turno: listaTurnos.lista) {                              //recorro el arreglo de turnos
+			for (Persona cliente: turno.getClientes()){                     //recorro el arreglo de personas en
+																			// cada turno
+				if(cliente.getDni()==clienteBuscado.getDni()){ horario= turno.getHorario();
+					return horario;
+					}													//freno ambos ciclos una vez encontrado
+			} }
+
+		System.out.println("La persona no se encuentra inscripta en ningun horario");
+
+		return horario;}
 
 	//endregion
 
