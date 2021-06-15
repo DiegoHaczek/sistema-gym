@@ -548,20 +548,21 @@ public class GYM {
 		return arregloJson;
 	}
 
-
-	public JSONArray levantarJson() throws JSONException {
-		JSONArray listArray = new JSONArray();
-		JsonUtiles utiles = new JsonUtiles();
-		JSONObject jsonObject = new JSONObject();
-
-		for (T e : lista) {
-			listArray.put(e.getFormatoJSON());
-		}
-		String respuesta = listArray.toString();
-		JSONArray arregloJson = new JSONArray(respuesta);
-		utiles.grabar(arregloJson);
-		return arregloJson;
-	}
+	
+	public void Levantar_ALL() throws JSONException
+{
+	JSONArray listaArray = new JSONArray();
+	JsonUtiles utiles = new JsonUtiles();
+	listaArray.put(listaCliente.Levantar_Json_Cliente());
+	listaArray.put(listaProfesor.Levantar_Json_Profesor());
+	listaArray.put(listaTurnos.Levantar_Json_Turnos());
+	
+	String repuesta = listaArray.toString();
+	JSONArray arregloJson = new JSONArray(repuesta);
+	utiles.grabar(arregloJson);
+	System.out.println(arregloJson);
+	
+}
 	//endregion
 
 	
