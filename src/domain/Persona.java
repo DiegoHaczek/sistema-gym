@@ -6,7 +6,7 @@ import java.util.Scanner;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Persona implements Billetera{
+public class Persona {
 
     private String nombre;
     private String apellido;
@@ -41,7 +41,6 @@ public class Persona implements Billetera{
         this.genero = genero;
         this.edad = edad;
         this.celular = celular;
-        initBilletera();
     }
 
 
@@ -126,32 +125,6 @@ public class Persona implements Billetera{
                 ']';
     }
 
-
-    @Override
-    public void initBilletera() {
-        //Como se va a aplicar a profesor/cliente el saldo sera random suponiendo de que ya tienen plata.
-        Random random = new Random();
-        saldo = random.nextInt(3000);
-    }
-
-    @Override
-    public boolean pagar(int debito) {
-        if(debito < saldo){
-            return true;
-        }else{
-            return false;
-        }
-    }
-
-    @Override
-    public void agregar(int credito) {
-        saldo += credito;
-    }
-
-    @Override
-    public void verSaldo() {
-        System.out.println("Tu saldo actual es: $" + saldo);
-    }
 
 
 }

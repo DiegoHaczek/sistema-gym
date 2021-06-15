@@ -14,28 +14,18 @@ public class Profesor extends Persona{
     public Profesor(){
         super();
         disciplina = Disciplina.MUSCULACION;
-        iniciarDatos();
+
     }
 
     public Profesor(Disciplina disciplina){
         super();
         this.disciplina = disciplina;
-        iniciarDatos();
+
     }
     public Profesor(String nombre, String apellido, int dni, char genero, int edad, int celular, Disciplina disciplina) {
         super(nombre,apellido,dni,genero,edad,celular);
         this.disciplina = disciplina;
-        iniciarDatos();
-    }
 
-
-    private void iniciarDatos(){
-
-        //Creo la billetera
-        super.initBilletera();
-
-        //Muestro el saldo
-        super.verSaldo();
     }
 
     public JSONObject getFormatoJSON() throws JSONException {

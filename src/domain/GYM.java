@@ -1,8 +1,7 @@
 package domain;
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.time.LocalDate;
+import java.util.*;
 
 //import javax.rmi.CORBA.Tie;
 
@@ -18,6 +17,7 @@ public class GYM {
 	ListaGenerica<Turno> listaTurnos;
 	ListaGenerica<Persona> listaClienteConDeudas;
 	Tienda tienda;
+	Contabilidad contabilidad;
 
 	// CONSTRUCTOR
 
@@ -28,6 +28,7 @@ public class GYM {
 		listaTurnos = new ListaGenerica<>();
 		listaClienteConDeudas = new ListaGenerica<>();
 		tienda = new Tienda(new ArrayList<Producto>());
+		contabilidad = new Contabilidad("GYM");
 	}
 
 	//region AGREGAR
@@ -233,6 +234,17 @@ public class GYM {
 					return false;
 				} else {
 					e.AgregarCliente(persona);
+
+					//Funcion de contabilidad
+					//casteo persona para tratarlo como cliente
+					Cliente cliente = (Cliente) persona;
+					//Si el cliente no pago la cuota, al inscribirse al turno la paga. Necesitamos esta comprobacion
+					//porque sino cada vez que se inscribe el mismo cliente a un turno va a tener que pagar
+					if(!cliente.getPagoCuota()) {
+						//Ahora si pago la cuota dependiendo de la frecuencia de pago que eligio el cliente
+						contabilidad.agregar(contabilidad.precios.get(cliente.getFrecuenciaPago()));
+						cliente.setPagoCuota(true);
+					}
 					return true;
 				}
 			}
@@ -501,6 +513,31 @@ public class GYM {
 
 	}
 
+	//endregion
+
+	//region FUNCIONES CONTABILIDAD
+
+	public void listar(){
+		//muestro los movimientos
+		System.out.println("Registro de movimientos de " + contabilidad.nombre);
+		contabilidad.movimientos.forEach(
+				(k,v)->{
+					System.out.println(k.format(contabilidad.formatter) + " = $" + v );
+				}
+		);
+	}
+	public void cierreCaja(){
+		//actualizo caja
+		contabilidad.initBilletera();
+
+		//Reinicio el map
+		Set<LocalDate> set = new HashSet<>();
+		set.add(contabilidad.fechaHoy);
+		contabilidad.movimientos.keySet().removeAll(set);
+
+		//Aumento el dia
+		contabilidad.fechaHoy.plusDays(1);
+	}
 	//endregion
 
 	
