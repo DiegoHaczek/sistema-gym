@@ -1,8 +1,11 @@
 package domain;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import excepciones.LimiteExcepcion;
 
 //import javax.rmi.CORBA.Tie;
 
@@ -19,10 +22,9 @@ public class GYM {
 	ListaGenerica<Persona> listaClienteConDeudas;
 	Tienda tienda;
 
-	// CONSTRUCTOR
+	// CONTRUCTOR
 
 	public GYM() {
-
 		listaCliente = new ListaGenerica<>();
 		listaProfesor = new ListaGenerica<>();
 		listaTurnos = new ListaGenerica<>();
@@ -30,7 +32,7 @@ public class GYM {
 		tienda = new Tienda(new ArrayList<Producto>());
 	}
 
-	//region AGREGAR
+	// Agregar
 
 	public void AgregarPersona(Persona persona) // Usamos un solo agregar
 	{
@@ -46,9 +48,7 @@ public class GYM {
 		listaTurnos.Agregar_A_lista(turno);
 	}
 
-	//endregion
-
-	//region LISTAR
+	// LISTAR
 
 	public void ListarCliente() {
 		listaCliente.Listar();
@@ -62,9 +62,7 @@ public class GYM {
 		listaTurnos.Listar();
 	}
 
-	//endregion
-
-	//region BORRAR
+	// BORRAR
 
 	public void BorrarPersona() {
 		Scanner scanner = new Scanner(System.in);
@@ -93,16 +91,16 @@ public class GYM {
 					e.getMessage();
 				}
 				if (listaProfesor.lista != null) {
-					boolean existe = false;
+
 					for (Persona profesor : listaProfesor.lista) {
 						if (profesor.getDni() == dni) {
 							listaProfesor.lista.remove(profesor);
 							System.out.println("Profesor Borrado");
-							existe=true;
 							break; /// Corto el ciclo una vez encontrado
+						} else {
+							System.out.println("No existe un profesor con ese DNI");
 						}
-					}if (!existe) {System.out.println("No existe un profesor con ese DNI");}
-
+					}
 				}
 			}
 			if (rta == 2) {
@@ -117,16 +115,15 @@ public class GYM {
 					e.getMessage();
 				}
 				if (listaCliente.lista != null) {
-					boolean existe = false;
 					for (Persona cliente : listaCliente.lista) {
 						if (cliente.getDni() == dni) {
 							listaCliente.lista.remove(cliente);
 							System.out.println("Cliente Borrado");
-							existe=true;
 							break;
+						} else {
+							System.out.println("No existe un cliente con ese DNI");
 						}
-
-					}if (!existe){ System.out.println("No existe un cliente con ese DNI"); }
+					}
 				}
 
 			}
@@ -163,6 +160,7 @@ public class GYM {
 		int dni = 0;
 		Scanner scanner = new Scanner(System.in);
 		while (dni == 0) {
+			scanner.nextLine();
 			try {
 				System.out.println("Ingrese el DNI del cliente a buscar");
 				dni = scanner.nextInt();
@@ -171,35 +169,28 @@ public class GYM {
 			} catch (Exception e) {
 				e.getMessage();
 			}
-
-			scanner.nextLine();
-
 			// creo que no va a retornar la lista
-			for (Persona cliente : listaCliente.lista) {
+			for (Persona cliente : listaCliente.Retorna_Lista()) {
 				if (cliente.getDni() == dni) {
 					System.out.println(cliente);
 					return cliente;
+
+				} else {
+					System.out.println("No existe un cliente con ese DNI");
 				}
 			}
 		}
-		System.out.println("No existe un cliente con ese DNI");
 		return null;
 	}
-
-
-	//endregion
 
 	/*
 	 * public void LevantarJson() { listaCliente.json(); listaProfesor.json();
 	 * listaClienteConDeudas.json(); } public void ArchivarJson() {
 	 * listaCliente.json(); listaProfesor.json(); listaClienteConDeudas.json(); }
 	 */
-
-	//regionFUNCIONES CLIENTES
-
-	public void Chequear_deuda(Cliente cliente)// Lista la deuda actual tiene el cliente
+	public void Chequear_deuda()// Lista la deuda actual tiene el cliente
 	{
-		System.out.println("La deuda de " + cliente.getNombre() + "es $" + cliente.getDeuda());
+
 	}
 
 	public void Dar_De_baja()// de la lista Cliente que pasan a la lista deudores
@@ -220,15 +211,15 @@ public class GYM {
 		}
 	}
 
-	//endregion
+	// FUNCIONES TURNOS
 
-	//region FUNCIONES TURNOS
-
-	public boolean Inscribirse_A_Turnos(Integer horario, Persona persona)// turnos
+	public boolean Incribirse_A_Turnos(Integer horario, Persona persona)// turnos
 	{
+
 		for (Turno e : listaTurnos.lista) {
+
 			if (e.getHorario() == horario) {
-				if (e.getEstaLleno()){
+				if (e.getEstaLleno()) {
 					System.out.println("Esta lleno Sorry");
 					return false;
 				} else {
@@ -244,7 +235,7 @@ public class GYM {
 	public void Cambiar_De_Turnos(Persona persona, Integer horarioActual, Integer horarioNuevo)// Turnos
 	{
 		Cancelar_Turno(horarioActual, persona);
-		Inscribirse_A_Turnos(horarioNuevo, persona);
+		Incribirse_A_Turnos(horarioNuevo, persona);
 	}
 
 	public void Cancelar_Turno(Integer horarioActual, Persona persona)// Turnos
@@ -259,12 +250,7 @@ public class GYM {
 		}
 	}
 
-	//endregion
-
-	//region FUNCIONES TIENDA
-
-	public void Ver_Tienda (){ System.out.println(tienda);
-	}
+	/// FUNCIONES TIENDA
 
 	public void Vender_Producto() {
 
@@ -363,50 +349,6 @@ public class GYM {
 		}
 	}
 
-	public void Cambiar_Precio() {
-
-		Scanner scanner = new Scanner(System.in);
-
-		int id = -1;
-		int precio = 0;
-
-		while (id == -1) {
-			scanner.nextLine();
-			try {
-				System.out.println("Ingrese el Id del producto a cambiar de precio");
-				tienda.mostrarIdProductos();
-				id = scanner.nextInt();
-			} catch (InputMismatchException e) {
-				System.out.println("Debe ingresar un numero"); /// se verifica que se haya ingresado un num
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-
-		}
-
-		if (tienda.getProductos().size() >= id) { /// verifica que el id exista, si existe continua
-
-			while (precio == 0) {
-				scanner.nextLine();
-				System.out.println("Precio actual: " + tienda.getProductos().get(id).precio);
-				try {
-					System.out.println("Ingrese nuevo precio: ");
-					precio = scanner.nextInt();
-				} catch (InputMismatchException e) {
-					System.out.println("Debe ingresar un numero");
-				} catch (Exception e) {
-					System.out.println(e.getMessage());
-				}
-			}
-
-			tienda.getProductos().get(id).precio = precio;
-			System.out.println("Precio modificado");
-
-		} else {
-			System.out.println("Id inexistente");
-		}
-	}
-
 	public void Agregar_Producto(Producto productoAgregado) {
 
 		boolean existe = false;
@@ -422,97 +364,46 @@ public class GYM {
 		}
 	}
 
-	public void Quitar_Producto (){
 
-		tienda.mostrarIdProductos();
-		int id=-1;
 
-		Scanner scanner = new Scanner(System.in);
-
-		while (id==-1) {
-			scanner.nextLine();
-
-			try{
-				System.out.println("Ingrese id del producto a quitar");
-				id = scanner.nextInt();
-			}
-			catch (InputMismatchException e){
-				System.out.println("Debe ingresar un numero");
-			}
-		}
-
-		if (tienda.getProductos().size()>=id){
-			tienda.getProductos().remove(id);
-			System.out.println("Producto removido");}
-		else { System.out.println("Id inexistente");
-
-		}
-	}
-
-	public void Retirar_De_Caja (){
-		Scanner scanner = new Scanner(System.in);
-		int cantidad = 0;
-
-		while (cantidad==0){
-
-			scanner.nextLine();
-
-			try{
-				tienda.verSaldo();
-				System.out.println("Ingrese la cantidad a retirar");
-				cantidad = scanner.nextInt();
-			}catch (InputMismatchException e){                      ///verifica que se haya ingresado un numero
-				System.out.println("Debe ingresar un numero");
-			}catch (Exception e){
-				e.getMessage();
-			}
-		}
-
-		boolean retiro = tienda.pagar(cantidad);                                    ///utilizo la interfaz billetera
-		if (retiro){
-			System.out.println("Retiro de caja registrado");
-			tienda.verSaldo();
-		}else { System.out.println("El monto indicado es mayor al existente en la caja");
-			tienda.verSaldo();
-		}
-	}
-
-	public void Reponer_Caja (){
-
-		Scanner scanner = new Scanner(System.in);
-		int cantidad = 0;
-
-		while (cantidad==0){
-
-			scanner.nextLine();
-
-			try{
-				System.out.println("Ingrese la cantidad a reponer");
-				cantidad = scanner.nextInt();
-			}catch (InputMismatchException e){                      ///verifica que se haya ingresado un numero
-				System.out.println("Debe ingresar un numero");
-			}catch (Exception e){
-				e.getMessage();
-			}
-		}
-
-		tienda.agregar(cantidad);                        ///utilizo la funcion de la interfaz billetera
-		System.out.println("Reposicion de caja registrada");
-
-	}
-
-	//endregion
-
-	
-	/*
-	 * public JSONArray levantarJson() throws JSONException { JSONArray listArray =
+	/*public JSONArray levantarJson() throws JSONException { JSONArray listArray =
 	 * new JSONArray(); JsonUtil utiles = new JsonUtil(); JSONObject jsonObject =
 	 * new JSONObject();
 	 * 
 	 * for (T e : lista) { listArray.put(e.getFormatoJSON()); } String respuesta =
 	 * listArray.toString(); JSONArray arregloJson = new JSONArray(respuesta);
-	 * utiles.grabarJson(arregloJson); return arregloJson; }
-	 * 
-	 */
+	 * utiles.grabarJson(arregloJson); return arregloJson; }*
 
+	public void Levantar_ALL() throws JSONException {
+		JSONArray listaArray = new JSONArray();
+		JsonUtil utiles = new JsonUtil();
+		listaArray.put(avionGuerra.levantarJson());
+		listaArray.put(avionPrivado.levantarJson());
+		listaArray.put(avionCargas.levantarJson());
+		listaArray.put(avionComercial.levantarJson());
+		String repuesta = listaArray.toString();
+		JSONArray arregloJson = new JSONArray(repuesta);
+		utiles.grabarJson(arregloJson);
+		System.out.println(arregloJson);
+
+	}
+
+	public String Pasar_A_JSON_Lista() {
+		JSONArray ListJson = new JSONArray(ListaHelado);
+		JSONArray ListJson2 = new JSONArray(ListaHelado);
+		return ListJson.toString();
+	}*/
+
+
+	/*public String devuelveToString(){
+	
+		JSONArray jsonArray = new JSONArray();
+		JSONObject myObject = new JSONObject();
+	
+		myObject = devuelveObj();
+	
+		jsonArray.put(myObject);
+	
+		return jsonArray.toString();
+	}*/
 }
