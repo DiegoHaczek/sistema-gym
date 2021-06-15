@@ -3,6 +3,11 @@ package domain;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import files.JsonUtiles;
 
 //import javax.rmi.CORBA.Tie;
 
@@ -501,6 +506,63 @@ public class GYM {
 
 	}
 
+	public JSONArray Levantar_Json_Cliente(){
+		JSONArray listArray = new JSONArray();
+		JsonUtiles utiles = new JsonUtiles();
+		JSONObject jsonObject = new JSONObject();
+
+		for (Persona e : listaCliente.lista) {
+			listArray.put(e.getFormatoJSON());
+		}
+		String respuesta = listArray.toString();
+		JSONArray arregloJson = new JSONArray(respuesta);
+		utiles.grabar(arregloJson);
+		return arregloJson;
+	}
+
+	public JSONArray Levantar_Json_Profesor(){
+		JSONArray listArray = new JSONArray();
+		JsonUtiles utiles = new JsonUtiles();
+		JSONObject jsonObject = new JSONObject();
+
+		for (Persona e : listaProfesor.lista) {
+			listArray.put(e.getFormatoJSON());
+		}
+		String respuesta = listArray.toString();
+		JSONArray arregloJson = new JSONArray(respuesta);
+		utiles.grabar(arregloJson);
+		return arregloJson;
+	}
+
+	public JSONArray Levantar_Json_Turnos(){
+		JSONArray listArray = new JSONArray();
+		JsonUtiles utiles = new JsonUtiles();
+		JSONObject jsonObject = new JSONObject();
+
+		for (Turno e : listaTurnos.lista) {
+			listArray.put(e.getFormatoJSON());
+		}
+		String respuesta = listArray.toString();
+		JSONArray arregloJson = new JSONArray(respuesta);
+		utiles.grabar(arregloJson);
+		return arregloJson;
+	}
+
+	
+	public void Levantar_ALL() throws JSONException
+{
+	JSONArray listaArray = new JSONArray();
+	JsonUtiles utiles = new JsonUtiles();
+	listaArray.put(listaCliente.Levantar_Json_Cliente());
+	listaArray.put(listaProfesor.Levantar_Json_Profesor());
+	listaArray.put(listaTurnos.Levantar_Json_Turnos());
+	
+	String repuesta = listaArray.toString();
+	JSONArray arregloJson = new JSONArray(repuesta);
+	utiles.grabar(arregloJson);
+	System.out.println(arregloJson);
+	
+}
 	//endregion
 
 	

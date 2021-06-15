@@ -1,10 +1,12 @@
 package domain;
 
+import org.json.JSONObject;
 import org.w3c.dom.ls.LSOutput;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import org.json.JSONException;
 
 public class Turno {
 
@@ -76,6 +78,10 @@ public class Turno {
         this.profesor = profesor;
     }
 
+    public ArrayList<Persona> getClientes() {
+        return clientes;
+    }
+
     public boolean getEstaLleno() { /// retorna que el turno esta completo si
         System.out.println(clientes.size());
         if (clientes.size() > 10) {
@@ -112,5 +118,14 @@ public class Turno {
                 + profesor + "]";
     }
 
+
+    public JSONObject getFormatoJSON() throws JSONException {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("Horario", getHorario());
+        jsonObject.put("Profesor", getProfesor());
+        jsonObject.put("Lista Clientes", getClientes());
+        jsonObject.put("Esta lleno?", getEstaLleno());
+        return jsonObject;
+    }
 
 }
