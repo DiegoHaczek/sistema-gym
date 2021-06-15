@@ -524,43 +524,70 @@ public class GYM {
 	public JSONArray Levantar_Json_Cliente(){
 		JSONArray listArray = new JSONArray();
 		JsonUtiles utiles = new JsonUtiles();
-		JSONObject jsonObject = new JSONObject();
 
-		for (Persona e : listaCliente.lista) {
-			listArray.put(e.getFormatoJSON());
+		try {
+			for (Persona e : listaCliente.lista) {
+				listArray.put(e.getFormatoJSON());
+			}
+		}catch (JSONException e1) {
+			e1.printStackTrace();
 		}
+
 		String respuesta = listArray.toString();
-		JSONArray arregloJson = new JSONArray(respuesta);
-		utiles.grabar(arregloJson);
-		return arregloJson;
+		try {
+			JSONArray arregloJson = new JSONArray(respuesta);
+			utiles.grabar(arregloJson);
+			return arregloJson;
+		}catch (JSONException e1){
+			e1.printStackTrace();
+		}
+		return null;
 	}
 
 	public JSONArray Levantar_Json_Profesor(){
 		JSONArray listArray = new JSONArray();
 		JsonUtiles utiles = new JsonUtiles();
-		JSONObject jsonObject = new JSONObject();
 
-		for (Persona e : listaProfesor.lista) {
-			listArray.put(e.getFormatoJSON());
+		try {
+			for (Persona e : listaProfesor.lista) {
+				listArray.put(e.getFormatoJSON());
+			}
+		}catch (JSONException e1) {
+				e1.printStackTrace();
 		}
+
 		String respuesta = listArray.toString();
-		JSONArray arregloJson = new JSONArray(respuesta);
-		utiles.grabar(arregloJson);
-		return arregloJson;
+		try {
+			JSONArray arregloJson = new JSONArray(respuesta);
+			utiles.grabar(arregloJson);
+			return arregloJson;
+		}catch (JSONException e1){
+			e1.printStackTrace();
+		}
+		return null;
 	}
 
 	public JSONArray Levantar_Json_Turnos(){
 		JSONArray listArray = new JSONArray();
 		JsonUtiles utiles = new JsonUtiles();
 		JSONObject jsonObject = new JSONObject();
-
-		for (Turno e : listaTurnos.lista) {
-			listArray.put(e.getFormatoJSON());
+		try {
+			for (Turno e : listaTurnos.lista) {
+				listArray.put(e.getFormatoJSON());
+			}
+		}catch (JSONException e1) {
+			e1.printStackTrace();
 		}
+
 		String respuesta = listArray.toString();
-		JSONArray arregloJson = new JSONArray(respuesta);
-		utiles.grabar(arregloJson);
-		return arregloJson;
+		try {
+			JSONArray arregloJson = new JSONArray(respuesta);
+			utiles.grabar(arregloJson);
+			return arregloJson;
+		}catch (JSONException e1){
+			e1.printStackTrace();
+		}
+		return null;
 	}
 
 	
@@ -568,9 +595,9 @@ public class GYM {
 {
 	JSONArray listaArray = new JSONArray();
 	JsonUtiles utiles = new JsonUtiles();
-	listaArray.put(listaCliente.Levantar_Json_Cliente());
-	listaArray.put(listaProfesor.Levantar_Json_Profesor());
-	listaArray.put(listaTurnos.Levantar_Json_Turnos());
+	listaArray.put(Levantar_Json_Cliente());
+	listaArray.put(Levantar_Json_Profesor());
+	listaArray.put(Levantar_Json_Turnos());
 	
 	String repuesta = listaArray.toString();
 	JSONArray arregloJson = new JSONArray(repuesta);
