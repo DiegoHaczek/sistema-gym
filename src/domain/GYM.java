@@ -75,78 +75,71 @@ public class GYM {
 
 	//region BORRAR
 
-	public void BorrarPersona() {
+
+	public void Borrar_Profesor() {
+
 		Scanner scanner = new Scanner(System.in);
 
 		int rta = 0;
 		int dni = 0;
-		do {
-			scanner.nextLine();
-			try {
-				System.out.println("Desea borrar un profesor o un cliente? 1: Profesor 2: Cliente ");
-				rta = scanner.nextInt();
-			} catch (InputMismatchException e) {
-				System.out.println("Debe ingresar 1 o 2");
-			} catch (Exception e) {
-				e.getMessage();
-			}
-			if (rta == 1) {
-				ListarProfesor();
-				scanner.nextLine();
-				try {
-					System.out.println("Ingrese Dni del profesor a borrar ");
-					dni = scanner.nextInt();
-				} catch (InputMismatchException e) {
-					System.out.println("Debe ingresar un DNI");
-				} catch (Exception e) {
-					e.getMessage();
-				}
-				if (listaProfesor.lista != null) {
-					boolean existe = false;
-					for (Persona profesor : listaProfesor.lista) {
-						if (profesor.getDni() == dni) {
-							listaProfesor.lista.remove(profesor);
-							System.out.println("Profesor Borrado");
-							existe=true;
-							break; /// Corto el ciclo una vez encontrado
-						}
-					}if (!existe) {System.out.println("No existe un profesor con ese DNI");}
 
+		ListarProfesor();
+		scanner.nextLine();
+		try {
+			System.out.println("Ingrese Dni del profesor a borrar ");
+			dni = scanner.nextInt();
+		} catch (InputMismatchException e) {
+			System.out.println("Debe ingresar un DNI");
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		if (listaProfesor.lista != null) {
+			boolean existe = false;
+			for (Persona profesor : listaProfesor.lista) {
+				if (profesor.getDni() == dni) {
+					listaProfesor.lista.remove(profesor);
+					System.out.println("Profesor Borrado");
+					existe=true;
+					break; /// Corto el ciclo una vez encontrado
 				}
-			}
-			if (rta == 2) {
-				ListarCliente();
-				scanner.nextLine();
-				try {
-					System.out.println("Ingrese Dni del Cliente a borrar ");
-					dni = scanner.nextInt();
-				} catch (InputMismatchException e) {
-					System.out.println("Debe ingresar un DNI");
-				} catch (Exception e) {
-					e.getMessage();
-				}
-				if (listaCliente.lista != null) {
-					boolean existe = false;
-					for (Persona cliente : listaCliente.lista) {
-						if (cliente.getDni() == dni) {
-							listaCliente.lista.remove(cliente);
-							System.out.println("Cliente Borrado");
-							existe=true;
-							break;
-						}
+			}if (!existe) {System.out.println("No existe un profesor con ese DNI");} }
 
-					}if (!existe){ System.out.println("No existe un cliente con ese DNI"); }
-				}
-
-			}
-		} while (rta != 1 && rta != 2);
 	}
 
-	public void BuscarProfesorPorDNI() {
+	public void Borrar_Cliente() {
+
+		Scanner scanner = new Scanner(System.in);
+		int rta = 0;
+		int dni = 0;
+
+		ListarCliente();
+		scanner.nextLine();
+		try {
+			System.out.println("Ingrese Dni del cliente a borrar ");
+			dni = scanner.nextInt();
+		} catch (InputMismatchException e) {
+			System.out.println("Debe ingresar un DNI");
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		if (listaCliente.lista != null) {
+			boolean existe = false;
+			for (Persona profesor : listaCliente.lista) {
+				if (profesor.getDni() == dni) {
+					listaCliente.lista.remove(profesor);
+					System.out.println("Cliente Borrado");
+					existe=true;
+					break; /// Corto el ciclo una vez encontrado
+				}
+			}if (!existe) {System.out.println("No existe un cliente con ese DNI");} }
+
+
+	}
+
+	public Persona BuscarProfesorPorDNI() {
 		int dni = 0;
 		Scanner scanner = new Scanner(System.in);
 		while (dni == 0) {
-			scanner.nextLine();
 			try {
 				System.out.println("Ingrese el DNI del profesor a buscar");
 				dni = scanner.nextInt();
@@ -156,16 +149,18 @@ public class GYM {
 				e.getMessage();
 			}
 
+			scanner.nextLine();
+
 			// creo que no va a retornar la lista
 			for (Persona profesor : listaProfesor.lista) {
 				if (profesor.getDni() == dni) {
 					System.out.println(profesor);
-					break;
-				} else {
-					System.out.println("No existe un profesor con ese DNI");
+					return profesor;
 				}
 			}
 		}
+		System.out.println("No existe un profesor con ese DNI");
+		return null;
 	}
 
 	public Persona BuscarClientePorDNI() {
