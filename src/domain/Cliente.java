@@ -57,7 +57,7 @@ public class Cliente extends Persona {
 
     @Override
     public String toString() {
-        return "Cliente[ " + super.toString() +
+        return "\nCliente[ " + super.toString() +
                 "deuda=" + deuda +
                 ", fechaIngreso=" + fechaIngreso.format(formatter) +
                 ", frecuenciaPago=" + frecuenciaPago +

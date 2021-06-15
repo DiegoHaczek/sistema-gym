@@ -114,10 +114,8 @@ public class Turno {
 
     @Override
     public String toString() {
-        return "Turno [clientes=" + clientes + ", estaLleno=" + estaLleno + ", horario=" + horario + ", profesor="
-                + profesor + "]";
+        return "Turno [Horario=" + horario + ", estaLleno=" + estaLleno + ", Clientes=" + clientes + profesor + "]";
     }
-
 
     public JSONObject getFormatoJSON() throws JSONException {
         JSONObject jsonObject = new JSONObject();
