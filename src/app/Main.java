@@ -3,21 +3,17 @@ package app;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-
-import java.util.Scanner;
+import java.util.*;
 
 import domain.*;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import javax.swing.text.Style;
 
 public class Main {
 
 	public static void main(String[] args) {
-
-		//blñalbalablablbalablalbabllablabl
 
 		int op;
 		String opString;
@@ -27,38 +23,28 @@ public class Main {
 
 		GYM gym = new GYM();
 
-		gym.AgregarPersona(new Profesor("Hector", "Sosa", 1, 'H', 35, 223421122, Disciplina.MUSCULACION));
-		gym.AgregarPersona(new Profesor("Jimena", "Fierro", 2, 'M', 35, 223421122, Disciplina.MUSCULACION));
-		gym.AgregarPersona(new Profesor("Lucas", "Lopez", 3, 'H', 35, 223421122, Disciplina.MUSCULACION));
-		gym.AgregarPersona(new Profesor("Pedro", "Sgalla", 4, 'H', 35, 223421122, Disciplina.MUSCULACION));
+		/* codigo para guardar el gson
+		gym.guardarGson_Profesores();
+		gym.guardarGson_Clientes();
+		gym.guardarGson_Turnos();
+		 */
 
-		gym.AgregarPersona(new Cliente("Juan", "Perez", 5, 'H', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
-		gym.AgregarPersona(new Cliente("Juana", "Matinez", 6, 'M', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
-		gym.AgregarPersona(new Cliente("Pablo", "Jose", 7, 'H', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
-		gym.AgregarPersona(new Cliente("Gonzalo", "Perez", 8, 'H', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
-		gym.AgregarPersona(new Cliente("Gaston", "Loel", 9, 'H', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
-		gym.AgregarPersona(new Cliente("Franco", "Valiente", 10, 'H', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
-		gym.AgregarPersona(new Cliente("Lucia", "Benoffi", 11, 'M', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
-		gym.AgregarPersona(new Cliente("Pedro", "Lopez", 12, 'H', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
-		gym.AgregarPersona(new Cliente("Sofia", "Piedra", 13, 'M', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
-		gym.AgregarPersona(new Cliente("Andrea", "Gonzales", 14, 'M', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
-		gym.AgregarPersona(new Cliente("Malena", "Polites", 15, 'M', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
-		gym.AgregarPersona(new Cliente("Carlos", "Fernandez", 16, 'H', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
-		gym.AgregarPersona(new Cliente("Ezequiel", "Valdes", 17, 'H', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
-		gym.AgregarPersona(new Cliente("Francisco", "Aguas", 18, 'H', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
-		gym.AgregarPersona(new Cliente("Nicolas", "Rodriguez", 19, 'H', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
-		gym.AgregarPersona(new Cliente("Elias", "Feliz", 21, 'H', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
-		gym.AgregarPersona(new Cliente("Enrique", "Rojo", 23, 'H', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
-		gym.AgregarPersona(new Cliente("Matias", "Azul", 24, 'H', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
-		gym.AgregarPersona(new Cliente("Cristian", "Maldis", 25, 'H', 18, 223421122, LocalDate.now(),FrecuenciaPago.SEMANAL));
-
-		gym.AgregarTurno(new Turno(9, new Profesor("Hector", "Sosa", 1, 'H', 35, 223548743, Disciplina.MUSCULACION)));
-		gym.AgregarTurno(new Turno(10, new Profesor("Jimena", "Fierro", 2, 'M', 35, 223548743, Disciplina.MUSCULACION)));
-		gym.AgregarTurno(new Turno(11, new Profesor("Lucas", "Lopez", 3, 'H', 35, 223548743, Disciplina.MUSCULACION)));
-		gym.AgregarTurno(new Turno(12, new Profesor("Pedro", "Sgalla", 4, 'H', 35, 223548743, Disciplina.MUSCULACION)));
-
-		Persona persona1 = new Persona();
-
+		try {
+			gym.actualizarListaCliente(); //carga las listas del gson a las listas locales
+		}catch (NullPointerException e){
+			e.getMessage();
+		}
+		try {
+			gym.actualizarListaProfesor(); //carga las listas del gson a las listas locales
+		}catch (NullPointerException e){
+			e.getMessage();
+		}
+		try {
+			gym.actualizarListaTurnos(); //carga las listas del gson a las listas locales
+		}catch (NullPointerException e){
+			e.getMessage();
+		}
+		
 		while (estado) {
 			System.out.println("");
 			System.out.println("Ingre una Opcion");

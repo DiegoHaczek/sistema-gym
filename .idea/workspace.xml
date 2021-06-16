@@ -2,10 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6842fef1-d308-48ad-8259-c680f3715845" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/clientes.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profesores.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/turnos.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/java_json.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/java_json.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sistema-gym/app/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sistema-gym/app/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sistema-gym/domain/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sistema-gym/domain/Cliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sistema-gym/domain/GYM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sistema-gym/domain/GYM.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sistema-gym/domain/Persona.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sistema-gym/domain/Persona.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sistema-gym/domain/Profesor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sistema-gym/domain/Profesor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/Profesor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/Profesor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/GYM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/GYM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/Persona.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,10 +107,17 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Carpeta Json/gson-2.8.7.jar" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\gamer\Documents\GitHub\sistema-gym2" />
+      <recent name="C:\Users\gamer\Documents\GitHub\sistema-gym2\src" />
+      <recent name="C:\Users\gamer\Documents\GitHub\sistema-gym2\src\app" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.Main (1)">
     <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">

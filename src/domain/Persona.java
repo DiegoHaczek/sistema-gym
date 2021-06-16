@@ -31,7 +31,7 @@ public class Persona {
 
     //CONSTRUCTORES
     public Persona() {
-        crearPersona();
+        //crearPersona();
     }
 
     public Persona(String nombre, String apellido, int dni, char genero, int edad, int celular) {
@@ -44,7 +44,7 @@ public class Persona {
     }
 
 
-    public void crearPersona(){
+    /*public void crearPersona(){
         Scanner scanner = new Scanner(System.in);
 
         //Uso el replaceAll en caso de que el usuario ingrese numeros.
@@ -100,7 +100,7 @@ public class Persona {
             }
         }
 
-    }
+    }*/
 
     public JSONObject getFormatoJSON() throws JSONException {
         JSONObject jsonObject = new JSONObject();

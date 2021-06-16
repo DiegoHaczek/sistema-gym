@@ -1,0 +1,48 @@
+{
+  "lista": [
+    {
+      "disciplina": "MUSCULACION",
+      "nombre": "Hector",
+      "apellido": "Sosa",
+      "dni": 1,
+      "genero": "H",
+      "edad": 35,
+      "celular": 223421122,
+      "saldo": 0,
+      "deuda": 0
+    },
+    {
+      "disciplina": "MUSCULACION",
+      "nombre": "Jimena",
+      "apellido": "Fierro",
+      "dni": 2,
+      "genero": "M",
+      "edad": 35,
+      "celular": 223421122,
+      "saldo": 0,
+      "deuda": 0
+    },
+    {
+      "disciplina": "MUSCULACION",
+      "nombre": "Lucas",
+      "apellido": "Lopez",
+      "dni": 3,
+      "genero": "H",
+      "edad": 35,
+      "celular": 223421122,
+      "saldo": 0,
+      "deuda": 0
+    },
+    {
+      "disciplina": "MUSCULACION",
+      "nombre": "Pedro",
+      "apellido": "Sgalla",
+      "dni": 4,
+      "genero": "H",
+      "edad": 35,
+      "celular": 223421122,
+      "saldo": 0,
+      "deuda": 0
+    }
+  ]
+}

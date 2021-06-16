@@ -1,15 +1,20 @@
 package domain;
 
+import java.io.*;
+import java.lang.reflect.Type;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import com.google.gson.reflect.TypeToken;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import files.JsonUtiles;
 
+import com.google.gson.*;
 
 //import javax.rmi.CORBA.Tie;
 
@@ -644,6 +649,9 @@ public class GYM {
 	System.out.println(arregloJson);
 	
 }
+
+
+
 	//endregion
 
 	//region FUNCIONES CONTABILIDAD
@@ -712,5 +720,167 @@ public class GYM {
 	
 		return jsonArray.toString();
 	}*/
+
+
+	//GSON
+
+	public void guardarGson_Clientes() {
+
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+		/** guardamos en un archivo */
+
+		BufferedWriter fSalida = null;
+
+		try {
+			fSalida = new BufferedWriter(new FileWriter(new File("clientes.json")));
+
+			String json = gson.toJson(listaCliente, listaCliente.getClass());
+
+			fSalida.write(json);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		} finally {
+			if(fSalida != null) {
+				try {
+					fSalida.close();
+
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	public void guardarGson_Profesores() {
+
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+		/** guardamos en un archivo */
+
+		BufferedWriter fSalida = null;
+
+		try {
+			fSalida = new BufferedWriter(new FileWriter(new File("profesores.json")));
+
+			String json = gson.toJson(listaProfesor, listaProfesor.getClass());
+
+			fSalida.write(json);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		} finally {
+			if(fSalida != null) {
+				try {
+					fSalida.close();
+
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	public void guardarGson_Turnos() {
+
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+		/** guardamos en un archivo */
+
+		BufferedWriter fSalida = null;
+
+		try {
+			fSalida = new BufferedWriter(new FileWriter(new File("turnos.json")));
+
+			String json = gson.toJson(listaTurnos, listaTurnos.getClass());
+
+			fSalida.write(json);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		} finally {
+			if(fSalida != null) {
+				try {
+					fSalida.close();
+
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+	public ListaGenerica<Persona> cargarGson_Personas(String nombrearchivo) {
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		BufferedReader reader = null;
+		ListaGenerica<Persona> lista = null;
+
+		Type tipoPersona = new TypeToken<ListaGenerica<Persona>>() {}.getType();
+		try {
+			reader = new BufferedReader(new FileReader(new File(nombrearchivo)));
+			lista = gson.fromJson(reader,tipoPersona);
+			// hacemos esto porque necesitamos el tipo de dato
+
+		} catch (IOException e) {
+			e.printStackTrace();
+
+		} finally {
+			try {
+				if (reader != null) {
+					reader.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return lista;
+	}
+
+	public ListaGenerica<Turno> cargarGson_Turnos(String nombrearchivo) {
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		BufferedReader reader = null;
+		ListaGenerica<Turno> lista = null;
+
+		Type tipoTurno = new TypeToken<ListaGenerica<Turno>>() {}.getType();
+		try {
+			reader = new BufferedReader(new FileReader(new File(nombrearchivo)));
+			lista = gson.fromJson(reader,tipoTurno);
+			// hacemos esto porque necesitamos el tipo de dato
+
+		} catch (IOException e) {
+			e.printStackTrace();
+
+		} finally {
+			try {
+				if (reader != null) {
+					reader.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return lista;
+	}
+
+	public void actualizarListaCliente(){
+		listaCliente = cargarGson_Personas("clientes.json");
+	}
+	public void actualizarListaProfesor(){
+		listaProfesor = cargarGson_Personas("profesores.json");
+	}
+	public void actualizarListaTurnos(){
+		listaTurnos = cargarGson_Turnos("turnos.json");
+	}
 
 }

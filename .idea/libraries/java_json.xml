@@ -2,6 +2,7 @@
   <library name="java-json">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/Carpeta Json/java-json.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Carpeta Json/gson-2.8.7.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
