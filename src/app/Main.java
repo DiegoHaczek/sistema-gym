@@ -11,13 +11,13 @@ import java.util.Scanner;
 
 import domain.*;
 
+import javax.swing.text.Style;
+
 public class Main {
 
 	public static void main(String[] args) {
 		int op;
 		String opString;
-		int opint;
-		int opint2;
 		boolean estado2 = true;
 		boolean estado = true;
 		Persona persona;
@@ -55,27 +55,23 @@ public class Main {
 		gym.AgregarTurno(new Turno(12, new Profesor("Pedro", "Sgalla", 4, 'H', 35, 223548743, Disciplina.MUSCULACION)));
 
 		while (estado) {
-
 			System.out.println("");
 			System.out.println("Ingre una Opcion");
 			System.out.println("1:Profesor");
 			System.out.println("2:Cliente");
 			System.out.println("3:Turnos");
 			System.out.println("4:Tienda");
-			System.out.println("5: Listar");
-			System.out.println("6: Planilla de Caja");
-			System.out.println("7: Modificar valor Articulos");
+			System.out.println("5:Listar");
+			System.out.println("6:Planilla de Caja");
+			System.out.println("7:Modificar valor Articulos");
 			System.out.println("0:Salir");
 			System.out.println("");
 
-			Scanner scanString = new Scanner(System.in);
-			Scanner scanint = new Scanner(System.in);
-			Scanner scan = new Scanner(System.in);
-
-			switch (op = scan.nextInt()) {
-
+			Scanner scanner = new Scanner(System.in);
+			switch (op = scanner.nextInt()){
 				case 1:
-					while (estado2) {
+					estado2 = true;
+					while(estado2){
 						System.out.println("");
 						System.out.println("Ingre una Opcion");
 						System.out.println("1:");
@@ -83,32 +79,28 @@ public class Main {
 						System.out.println("3: Borrar Profesor");
 						System.out.println("0:Salir");
 						System.out.println("");
-						switch (op = scan.nextInt()) {
+
+						switch (op = scanner.nextInt()){
 							case 1:
 								gym.ListarCliente();
-								new java.util.Scanner(System.in).nextLine();
 								break;
 							case 2:
 								gym.BuscarProfesorPorDNI();
-								new java.util.Scanner(System.in).nextLine();
 								break;
 							case 3:
 								gym.Borrar_Profesor();
-								new java.util.Scanner(System.in).nextLine();
 								break;
-
 							default:
-								System.out.println("Opcion invalida");
-								new java.util.Scanner(System.in).nextLine();
+								System.out.println("Entrada incorrecta");
 								break;
 							case 0:
 								estado2 = false;
 								break;
 						}
 					}
-
+					break;
 				case 2:
-
+					estado2 = true;
 					while (estado2) {
 						System.out.println("");
 						System.out.println("Ingre una Opcion");
@@ -117,33 +109,26 @@ public class Main {
 						System.out.println("3: Borrar Cliente");
 						System.out.println("0:Salir");
 						System.out.println("");
-						switch (op = scan.nextInt()) {
+						switch (op = scanner.nextInt()) {
 							case 1:
-
-								new java.util.Scanner(System.in).nextLine();
 								break;
 							case 2:
-
-								new java.util.Scanner(System.in).nextLine();
 								break;
 							case 3:
 								gym.Borrar_Cliente();
-								new java.util.Scanner(System.in).nextLine();
 								break;
-
 							default:
-
-								System.out.println("Opcion invalida");
-								new java.util.Scanner(System.in).nextLine();
+								System.out.println("Entrada incorrecta");
 								break;
 							case 0:
 								estado2 = false;
 								break;
 						}
 					}
+					break;
 				case 3:
-
-					while (estado2) {
+					estado2 = true;
+					while (estado2){
 						System.out.println("");
 						System.out.println("Ingre una Opcion");
 						System.out.println("1: Inscribirse a un Turno");
@@ -152,49 +137,43 @@ public class Main {
 						System.out.println("4: Ver Turnos");
 						System.out.println("0: Salir");
 						System.out.println("");
-						switch (op = scan.nextInt()) {
+						switch (op = scanner.nextInt()) {
 							case 1:
-								persona= gym.BuscarClientePorDNI();
+								persona = gym.BuscarClientePorDNI();
 
-								if(persona == null){
+								if (persona == null) {
 									System.out.println("Esta persona no esta es null");
 									break;
 								}
-								
-								if(gym.Inscribirse_A_Turnos(gym.Elegir_Turno(), persona)){
+
+								if (gym.Inscribirse_A_Turnos(gym.Elegir_Turno(), persona)) {
 									System.out.println("Se ingreso a la persona");
-								}else{
+								} else {
 									System.out.println("LLega?3");
 								}
-								new java.util.Scanner(System.in).nextLine();
 								break;
 							case 2:
-								persona= gym.BuscarClientePorDNI();
-								gym.Cambiar_De_Turnos(persona,gym.Buscar_Turno_Por_Cliente(persona), gym.Elegir_Turno());
-								new java.util.Scanner(System.in).nextLine();
+								persona = gym.BuscarClientePorDNI();
+								gym.Cambiar_De_Turnos(persona, gym.Buscar_Turno_Por_Cliente(persona), gym.Elegir_Turno());
 								break;
 							case 3:
-								persona= gym.BuscarClientePorDNI();
+								persona = gym.BuscarClientePorDNI();
 								gym.Cancelar_Turno(gym.Buscar_Turno_Por_Cliente(persona), persona);
-								new java.util.Scanner(System.in).nextLine();
 								break;
 							case 4:
 								gym.Ver_Turnos();
-								new java.util.Scanner(System.in).nextLine();
 								break;
-
 							default:
-
-								System.out.println("Opcion invalida");
-								new java.util.Scanner(System.in).nextLine();
+								System.out.println("Entrada incorrecta");
 								break;
 							case 0:
 								estado2 = false;
 								break;
 						}
 					}
+					break;
 				case 4:
-
+					estado2 = true;
 					while (estado2) {
 						System.out.println("");
 						System.out.println("Ingre una Opcion");
@@ -206,42 +185,37 @@ public class Main {
 						System.out.println("6: Retirar de Caja");
 						System.out.println("0:Salir");
 						System.out.println("");
-						switch (op = scan.nextInt()) {
+						switch (op = scanner.nextInt()) {
 							case 1:
 								gym.Ver_Tienda();
-								new java.util.Scanner(System.in).nextLine();
 								break;
 							case 2:
 								gym.Vender_Producto();
-								new java.util.Scanner(System.in).nextLine();
 								break;
 							case 3:
 								gym.Agregar_Producto(new Producto());
-								new java.util.Scanner(System.in).nextLine();
 								break;
 
-							case 4: gym.Reponer_Stock();
-								new java.util.Scanner(System.in).nextLine();
+							case 4:
+								gym.Reponer_Stock();
 								break;
-							case 5: gym.Reponer_Caja();
-								new java.util.Scanner(System.in).nextLine();
+							case 5:
+								gym.Reponer_Caja();
 								break;
-							case 6: gym.Retirar_De_Caja();
-								new java.util.Scanner(System.in).nextLine();
+							case 6:
+								gym.Retirar_De_Caja();
 								break;
-
 							default:
-
-								System.out.println("Opcion invalida");
-								new java.util.Scanner(System.in).nextLine();
+								System.out.println("Entrada incorrecta");
 								break;
 							case 0:
 								estado2 = false;
 								break;
 						}
 					}
+					break;
 				case 5:
-
+					estado2 = true;
 					while (estado2) {
 						System.out.println("");
 						System.out.println("Ingre una Opcion");
@@ -250,66 +224,52 @@ public class Main {
 						System.out.println("3: Ver productos");
 						System.out.println("0:Salir");
 						System.out.println("");
-						switch (op = scan.nextInt()) {
+						switch (op = scanner.nextInt()) {
 							case 1:
 								gym.ListarProfesor();
-								new java.util.Scanner(System.in).nextLine();
 								break;
 							case 2:
 								gym.ListarCliente();
-								new java.util.Scanner(System.in).nextLine();
 								break;
 							case 3:
 								gym.Ver_Tienda();
-								new java.util.Scanner(System.in).nextLine();
 								break;
-
 							default:
-
-								System.out.println("Opcion invalida");
-								new java.util.Scanner(System.in).nextLine();
+								System.out.println("Entrada incorrecta");
 								break;
 							case 0:
 								estado2 = false;
 								break;
 						}
 					}
+					break;
 				case 6:
-
+					estado2 = true;
 					while (estado2) {
 						System.out.println("");
 						System.out.println("Ingre una Opcion");
-						System.out.println("1:");
-						System.out.println("2:");
-						System.out.println("3:");
+						System.out.println("1:Ver movimientos");
+						System.out.println("2:Cerrar caja");
 						System.out.println("0:Salir");
 						System.out.println("");
-						switch (op = scan.nextInt()) {
+						switch (op = scanner.nextInt()) {
 							case 1:
-
-								new java.util.Scanner(System.in).nextLine();
+								gym.listar();
 								break;
 							case 2:
-
-								new java.util.Scanner(System.in).nextLine();
+								gym.cierreCaja();
 								break;
-							case 3:
-
-								new java.util.Scanner(System.in).nextLine();
-								break;
-
 							default:
-
-								System.out.println("Opcion invalida");
-								new java.util.Scanner(System.in).nextLine();
+								System.out.println("Entrada incorrecta");
 								break;
 							case 0:
 								estado2 = false;
 								break;
 						}
 					}
+					break;
 				case 7:
-
+					estado2 = true;
 					while (estado2) {
 						System.out.println("");
 						System.out.println("Ingre una Opcion");
@@ -318,77 +278,38 @@ public class Main {
 						System.out.println("3:");
 						System.out.println("0:Salir");
 						System.out.println("");
-						switch (op = scan.nextInt()) {
+						switch (op = scanner.nextInt()) {
 							case 1:
 
-								new java.util.Scanner(System.in).nextLine();
 								break;
 							case 2:
 
-								new java.util.Scanner(System.in).nextLine();
 								break;
 							case 3:
 
-								new java.util.Scanner(System.in).nextLine();
 								break;
-
 							default:
-
-								System.out.println("Opcion invalida");
-								new java.util.Scanner(System.in).nextLine();
+								System.out.println("Entrada incorrecta");
 								break;
 							case 0:
 								estado2 = false;
 								break;
 						}
 					}
-				case 8:
-
-					while (estado2) {
-						System.out.println("");
-						System.out.println("Ingre una Opcion");
-						System.out.println("1:");
-						System.out.println("2:");
-						System.out.println("3:");
-						System.out.println("0:Salir");
-						System.out.println("");
-						switch (op = scan.nextInt()) {
-							case 1:
-
-								new java.util.Scanner(System.in).nextLine();
-								break;
-							case 2:
-
-								new java.util.Scanner(System.in).nextLine();
-								break;
-							case 3:
-
-								new java.util.Scanner(System.in).nextLine();
-								break;
-
-							default:
-
-								System.out.println("Opcion invalida");
-								new java.util.Scanner(System.in).nextLine();
-								break;
-							case 0:
-								estado2 = false;
-								break;
-						}
-					}
+					break;
 
 				default:
-
-					System.out.println("Opcion invalida");
-					new java.util.Scanner(System.in).nextLine();
+					System.out.println("Entrada incorrecta");
 					break;
 
 				case 0:
 					estado = false;
 					break;
-
 			}
+
 		}
 
+
 	}
+
 }
