@@ -1,6 +1,55 @@
 {
   "lista": [
     {
+      "fechaIngreso": {
+        "year": 2021,
+        "month": 6,
+        "day": 16
+      },
+      "frecuenciaPago": "SEMANAL",
+      "pagoCuota": false,
+      "formatter": {
+        "printerParser": {
+          "printerParsers": [
+            {
+              "field": "DAY_OF_MONTH",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "MONTH_OF_YEAR",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "YEAR",
+              "minWidth": 1,
+              "maxWidth": 19,
+              "signStyle": "NORMAL",
+              "subsequentWidth": 0
+            }
+          ],
+          "optional": false
+        },
+        "locale": "es_AR",
+        "decimalStyle": {
+          "zeroDigit": "0",
+          "positiveSign": "+",
+          "negativeSign": "-",
+          "decimalSeparator": "."
+        },
+        "resolverStyle": "SMART"
+      },
       "nombre": "Juan",
       "apellido": "Perez",
       "dni": 5,
@@ -10,6 +59,55 @@
       "deuda": 0
     },
     {
+      "fechaIngreso": {
+        "year": 2021,
+        "month": 6,
+        "day": 16
+      },
+      "frecuenciaPago": "SEMANAL",
+      "pagoCuota": false,
+      "formatter": {
+        "printerParser": {
+          "printerParsers": [
+            {
+              "field": "DAY_OF_MONTH",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "MONTH_OF_YEAR",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "YEAR",
+              "minWidth": 1,
+              "maxWidth": 19,
+              "signStyle": "NORMAL",
+              "subsequentWidth": 0
+            }
+          ],
+          "optional": false
+        },
+        "locale": "es_AR",
+        "decimalStyle": {
+          "zeroDigit": "0",
+          "positiveSign": "+",
+          "negativeSign": "-",
+          "decimalSeparator": "."
+        },
+        "resolverStyle": "SMART"
+      },
       "nombre": "Juana",
       "apellido": "Matinez",
       "dni": 6,
@@ -19,6 +117,55 @@
       "deuda": 0
     },
     {
+      "fechaIngreso": {
+        "year": 2021,
+        "month": 6,
+        "day": 16
+      },
+      "frecuenciaPago": "SEMANAL",
+      "pagoCuota": false,
+      "formatter": {
+        "printerParser": {
+          "printerParsers": [
+            {
+              "field": "DAY_OF_MONTH",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "MONTH_OF_YEAR",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "YEAR",
+              "minWidth": 1,
+              "maxWidth": 19,
+              "signStyle": "NORMAL",
+              "subsequentWidth": 0
+            }
+          ],
+          "optional": false
+        },
+        "locale": "es_AR",
+        "decimalStyle": {
+          "zeroDigit": "0",
+          "positiveSign": "+",
+          "negativeSign": "-",
+          "decimalSeparator": "."
+        },
+        "resolverStyle": "SMART"
+      },
       "nombre": "Pablo",
       "apellido": "Jose",
       "dni": 7,
@@ -28,6 +175,55 @@
       "deuda": 0
     },
     {
+      "fechaIngreso": {
+        "year": 2021,
+        "month": 6,
+        "day": 16
+      },
+      "frecuenciaPago": "SEMANAL",
+      "pagoCuota": false,
+      "formatter": {
+        "printerParser": {
+          "printerParsers": [
+            {
+              "field": "DAY_OF_MONTH",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "MONTH_OF_YEAR",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "YEAR",
+              "minWidth": 1,
+              "maxWidth": 19,
+              "signStyle": "NORMAL",
+              "subsequentWidth": 0
+            }
+          ],
+          "optional": false
+        },
+        "locale": "es_AR",
+        "decimalStyle": {
+          "zeroDigit": "0",
+          "positiveSign": "+",
+          "negativeSign": "-",
+          "decimalSeparator": "."
+        },
+        "resolverStyle": "SMART"
+      },
       "nombre": "Gonzalo",
       "apellido": "Perez",
       "dni": 8,
@@ -37,6 +233,55 @@
       "deuda": 0
     },
     {
+      "fechaIngreso": {
+        "year": 2021,
+        "month": 6,
+        "day": 16
+      },
+      "frecuenciaPago": "SEMANAL",
+      "pagoCuota": false,
+      "formatter": {
+        "printerParser": {
+          "printerParsers": [
+            {
+              "field": "DAY_OF_MONTH",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "MONTH_OF_YEAR",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "YEAR",
+              "minWidth": 1,
+              "maxWidth": 19,
+              "signStyle": "NORMAL",
+              "subsequentWidth": 0
+            }
+          ],
+          "optional": false
+        },
+        "locale": "es_AR",
+        "decimalStyle": {
+          "zeroDigit": "0",
+          "positiveSign": "+",
+          "negativeSign": "-",
+          "decimalSeparator": "."
+        },
+        "resolverStyle": "SMART"
+      },
       "nombre": "Gaston",
       "apellido": "Loel",
       "dni": 9,
@@ -46,6 +291,55 @@
       "deuda": 0
     },
     {
+      "fechaIngreso": {
+        "year": 2021,
+        "month": 6,
+        "day": 16
+      },
+      "frecuenciaPago": "SEMANAL",
+      "pagoCuota": false,
+      "formatter": {
+        "printerParser": {
+          "printerParsers": [
+            {
+              "field": "DAY_OF_MONTH",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "MONTH_OF_YEAR",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "YEAR",
+              "minWidth": 1,
+              "maxWidth": 19,
+              "signStyle": "NORMAL",
+              "subsequentWidth": 0
+            }
+          ],
+          "optional": false
+        },
+        "locale": "es_AR",
+        "decimalStyle": {
+          "zeroDigit": "0",
+          "positiveSign": "+",
+          "negativeSign": "-",
+          "decimalSeparator": "."
+        },
+        "resolverStyle": "SMART"
+      },
       "nombre": "Franco",
       "apellido": "Valiente",
       "dni": 10,
@@ -55,6 +349,55 @@
       "deuda": 0
     },
     {
+      "fechaIngreso": {
+        "year": 2021,
+        "month": 6,
+        "day": 16
+      },
+      "frecuenciaPago": "SEMANAL",
+      "pagoCuota": false,
+      "formatter": {
+        "printerParser": {
+          "printerParsers": [
+            {
+              "field": "DAY_OF_MONTH",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "MONTH_OF_YEAR",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "YEAR",
+              "minWidth": 1,
+              "maxWidth": 19,
+              "signStyle": "NORMAL",
+              "subsequentWidth": 0
+            }
+          ],
+          "optional": false
+        },
+        "locale": "es_AR",
+        "decimalStyle": {
+          "zeroDigit": "0",
+          "positiveSign": "+",
+          "negativeSign": "-",
+          "decimalSeparator": "."
+        },
+        "resolverStyle": "SMART"
+      },
       "nombre": "Lucia",
       "apellido": "Benoffi",
       "dni": 11,
@@ -64,6 +407,55 @@
       "deuda": 0
     },
     {
+      "fechaIngreso": {
+        "year": 2021,
+        "month": 6,
+        "day": 16
+      },
+      "frecuenciaPago": "SEMANAL",
+      "pagoCuota": false,
+      "formatter": {
+        "printerParser": {
+          "printerParsers": [
+            {
+              "field": "DAY_OF_MONTH",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "MONTH_OF_YEAR",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "YEAR",
+              "minWidth": 1,
+              "maxWidth": 19,
+              "signStyle": "NORMAL",
+              "subsequentWidth": 0
+            }
+          ],
+          "optional": false
+        },
+        "locale": "es_AR",
+        "decimalStyle": {
+          "zeroDigit": "0",
+          "positiveSign": "+",
+          "negativeSign": "-",
+          "decimalSeparator": "."
+        },
+        "resolverStyle": "SMART"
+      },
       "nombre": "Pedro",
       "apellido": "Lopez",
       "dni": 12,
@@ -73,6 +465,55 @@
       "deuda": 0
     },
     {
+      "fechaIngreso": {
+        "year": 2021,
+        "month": 6,
+        "day": 16
+      },
+      "frecuenciaPago": "SEMANAL",
+      "pagoCuota": false,
+      "formatter": {
+        "printerParser": {
+          "printerParsers": [
+            {
+              "field": "DAY_OF_MONTH",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "MONTH_OF_YEAR",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "YEAR",
+              "minWidth": 1,
+              "maxWidth": 19,
+              "signStyle": "NORMAL",
+              "subsequentWidth": 0
+            }
+          ],
+          "optional": false
+        },
+        "locale": "es_AR",
+        "decimalStyle": {
+          "zeroDigit": "0",
+          "positiveSign": "+",
+          "negativeSign": "-",
+          "decimalSeparator": "."
+        },
+        "resolverStyle": "SMART"
+      },
       "nombre": "Sofia",
       "apellido": "Piedra",
       "dni": 13,
@@ -82,6 +523,55 @@
       "deuda": 0
     },
     {
+      "fechaIngreso": {
+        "year": 2021,
+        "month": 6,
+        "day": 16
+      },
+      "frecuenciaPago": "SEMANAL",
+      "pagoCuota": false,
+      "formatter": {
+        "printerParser": {
+          "printerParsers": [
+            {
+              "field": "DAY_OF_MONTH",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "MONTH_OF_YEAR",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "YEAR",
+              "minWidth": 1,
+              "maxWidth": 19,
+              "signStyle": "NORMAL",
+              "subsequentWidth": 0
+            }
+          ],
+          "optional": false
+        },
+        "locale": "es_AR",
+        "decimalStyle": {
+          "zeroDigit": "0",
+          "positiveSign": "+",
+          "negativeSign": "-",
+          "decimalSeparator": "."
+        },
+        "resolverStyle": "SMART"
+      },
       "nombre": "Andrea",
       "apellido": "Gonzales",
       "dni": 14,
@@ -91,6 +581,55 @@
       "deuda": 0
     },
     {
+      "fechaIngreso": {
+        "year": 2021,
+        "month": 6,
+        "day": 16
+      },
+      "frecuenciaPago": "SEMANAL",
+      "pagoCuota": false,
+      "formatter": {
+        "printerParser": {
+          "printerParsers": [
+            {
+              "field": "DAY_OF_MONTH",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "MONTH_OF_YEAR",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "YEAR",
+              "minWidth": 1,
+              "maxWidth": 19,
+              "signStyle": "NORMAL",
+              "subsequentWidth": 0
+            }
+          ],
+          "optional": false
+        },
+        "locale": "es_AR",
+        "decimalStyle": {
+          "zeroDigit": "0",
+          "positiveSign": "+",
+          "negativeSign": "-",
+          "decimalSeparator": "."
+        },
+        "resolverStyle": "SMART"
+      },
       "nombre": "Malena",
       "apellido": "Polites",
       "dni": 15,
@@ -100,6 +639,55 @@
       "deuda": 0
     },
     {
+      "fechaIngreso": {
+        "year": 2021,
+        "month": 6,
+        "day": 16
+      },
+      "frecuenciaPago": "SEMANAL",
+      "pagoCuota": false,
+      "formatter": {
+        "printerParser": {
+          "printerParsers": [
+            {
+              "field": "DAY_OF_MONTH",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "MONTH_OF_YEAR",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "YEAR",
+              "minWidth": 1,
+              "maxWidth": 19,
+              "signStyle": "NORMAL",
+              "subsequentWidth": 0
+            }
+          ],
+          "optional": false
+        },
+        "locale": "es_AR",
+        "decimalStyle": {
+          "zeroDigit": "0",
+          "positiveSign": "+",
+          "negativeSign": "-",
+          "decimalSeparator": "."
+        },
+        "resolverStyle": "SMART"
+      },
       "nombre": "Carlos",
       "apellido": "Fernandez",
       "dni": 16,
@@ -109,6 +697,55 @@
       "deuda": 0
     },
     {
+      "fechaIngreso": {
+        "year": 2021,
+        "month": 6,
+        "day": 16
+      },
+      "frecuenciaPago": "SEMANAL",
+      "pagoCuota": false,
+      "formatter": {
+        "printerParser": {
+          "printerParsers": [
+            {
+              "field": "DAY_OF_MONTH",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "MONTH_OF_YEAR",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "YEAR",
+              "minWidth": 1,
+              "maxWidth": 19,
+              "signStyle": "NORMAL",
+              "subsequentWidth": 0
+            }
+          ],
+          "optional": false
+        },
+        "locale": "es_AR",
+        "decimalStyle": {
+          "zeroDigit": "0",
+          "positiveSign": "+",
+          "negativeSign": "-",
+          "decimalSeparator": "."
+        },
+        "resolverStyle": "SMART"
+      },
       "nombre": "Ezequiel",
       "apellido": "Valdes",
       "dni": 17,
@@ -118,6 +755,55 @@
       "deuda": 0
     },
     {
+      "fechaIngreso": {
+        "year": 2021,
+        "month": 6,
+        "day": 16
+      },
+      "frecuenciaPago": "SEMANAL",
+      "pagoCuota": false,
+      "formatter": {
+        "printerParser": {
+          "printerParsers": [
+            {
+              "field": "DAY_OF_MONTH",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "MONTH_OF_YEAR",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "YEAR",
+              "minWidth": 1,
+              "maxWidth": 19,
+              "signStyle": "NORMAL",
+              "subsequentWidth": 0
+            }
+          ],
+          "optional": false
+        },
+        "locale": "es_AR",
+        "decimalStyle": {
+          "zeroDigit": "0",
+          "positiveSign": "+",
+          "negativeSign": "-",
+          "decimalSeparator": "."
+        },
+        "resolverStyle": "SMART"
+      },
       "nombre": "Francisco",
       "apellido": "Aguas",
       "dni": 18,
@@ -127,6 +813,55 @@
       "deuda": 0
     },
     {
+      "fechaIngreso": {
+        "year": 2021,
+        "month": 6,
+        "day": 16
+      },
+      "frecuenciaPago": "SEMANAL",
+      "pagoCuota": false,
+      "formatter": {
+        "printerParser": {
+          "printerParsers": [
+            {
+              "field": "DAY_OF_MONTH",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "MONTH_OF_YEAR",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "YEAR",
+              "minWidth": 1,
+              "maxWidth": 19,
+              "signStyle": "NORMAL",
+              "subsequentWidth": 0
+            }
+          ],
+          "optional": false
+        },
+        "locale": "es_AR",
+        "decimalStyle": {
+          "zeroDigit": "0",
+          "positiveSign": "+",
+          "negativeSign": "-",
+          "decimalSeparator": "."
+        },
+        "resolverStyle": "SMART"
+      },
       "nombre": "Nicolas",
       "apellido": "Rodriguez",
       "dni": 19,
@@ -136,6 +871,55 @@
       "deuda": 0
     },
     {
+      "fechaIngreso": {
+        "year": 2021,
+        "month": 6,
+        "day": 16
+      },
+      "frecuenciaPago": "SEMANAL",
+      "pagoCuota": false,
+      "formatter": {
+        "printerParser": {
+          "printerParsers": [
+            {
+              "field": "DAY_OF_MONTH",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "MONTH_OF_YEAR",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "YEAR",
+              "minWidth": 1,
+              "maxWidth": 19,
+              "signStyle": "NORMAL",
+              "subsequentWidth": 0
+            }
+          ],
+          "optional": false
+        },
+        "locale": "es_AR",
+        "decimalStyle": {
+          "zeroDigit": "0",
+          "positiveSign": "+",
+          "negativeSign": "-",
+          "decimalSeparator": "."
+        },
+        "resolverStyle": "SMART"
+      },
       "nombre": "Elias",
       "apellido": "Feliz",
       "dni": 21,
@@ -145,6 +929,55 @@
       "deuda": 0
     },
     {
+      "fechaIngreso": {
+        "year": 2021,
+        "month": 6,
+        "day": 16
+      },
+      "frecuenciaPago": "SEMANAL",
+      "pagoCuota": false,
+      "formatter": {
+        "printerParser": {
+          "printerParsers": [
+            {
+              "field": "DAY_OF_MONTH",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "MONTH_OF_YEAR",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "YEAR",
+              "minWidth": 1,
+              "maxWidth": 19,
+              "signStyle": "NORMAL",
+              "subsequentWidth": 0
+            }
+          ],
+          "optional": false
+        },
+        "locale": "es_AR",
+        "decimalStyle": {
+          "zeroDigit": "0",
+          "positiveSign": "+",
+          "negativeSign": "-",
+          "decimalSeparator": "."
+        },
+        "resolverStyle": "SMART"
+      },
       "nombre": "Enrique",
       "apellido": "Rojo",
       "dni": 23,
@@ -154,6 +987,55 @@
       "deuda": 0
     },
     {
+      "fechaIngreso": {
+        "year": 2021,
+        "month": 6,
+        "day": 16
+      },
+      "frecuenciaPago": "SEMANAL",
+      "pagoCuota": false,
+      "formatter": {
+        "printerParser": {
+          "printerParsers": [
+            {
+              "field": "DAY_OF_MONTH",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "MONTH_OF_YEAR",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "YEAR",
+              "minWidth": 1,
+              "maxWidth": 19,
+              "signStyle": "NORMAL",
+              "subsequentWidth": 0
+            }
+          ],
+          "optional": false
+        },
+        "locale": "es_AR",
+        "decimalStyle": {
+          "zeroDigit": "0",
+          "positiveSign": "+",
+          "negativeSign": "-",
+          "decimalSeparator": "."
+        },
+        "resolverStyle": "SMART"
+      },
       "nombre": "Matias",
       "apellido": "Azul",
       "dni": 24,
@@ -163,6 +1045,55 @@
       "deuda": 0
     },
     {
+      "fechaIngreso": {
+        "year": 2021,
+        "month": 6,
+        "day": 16
+      },
+      "frecuenciaPago": "SEMANAL",
+      "pagoCuota": false,
+      "formatter": {
+        "printerParser": {
+          "printerParsers": [
+            {
+              "field": "DAY_OF_MONTH",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "MONTH_OF_YEAR",
+              "minWidth": 2,
+              "maxWidth": 2,
+              "signStyle": "NOT_NEGATIVE",
+              "subsequentWidth": 0
+            },
+            {
+              "literal": "/"
+            },
+            {
+              "field": "YEAR",
+              "minWidth": 1,
+              "maxWidth": 19,
+              "signStyle": "NORMAL",
+              "subsequentWidth": 0
+            }
+          ],
+          "optional": false
+        },
+        "locale": "es_AR",
+        "decimalStyle": {
+          "zeroDigit": "0",
+          "positiveSign": "+",
+          "negativeSign": "-",
+          "decimalSeparator": "."
+        },
+        "resolverStyle": "SMART"
+      },
       "nombre": "Cristian",
       "apellido": "Maldis",
       "dni": 25,

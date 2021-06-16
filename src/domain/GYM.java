@@ -14,10 +14,10 @@ import com.google.gson.*;
 
 public class GYM {
 
-	ListaGenerica<Persona> listaCliente;
-	ListaGenerica<Persona> listaProfesor;
+	ListaGenerica<Cliente> listaCliente;
+	ListaGenerica<Profesor> listaProfesor;
 	ListaGenerica<Turno> listaTurnos;
-	ListaGenerica<Persona> listaClienteConDeudas;
+	ListaGenerica<Cliente> listaClienteConDeudas;
 	Tienda tienda;
 	Contabilidad contabilidad;
 
@@ -35,13 +35,12 @@ public class GYM {
 
 	//region AGREGAR
 
-	public void AgregarPersona(Persona persona) // Usamos un solo agregar
+	public void AgregarCliente(Cliente cliente) // Usamos un solo agregar
 	{
-		if (persona instanceof Profesor) {
-			listaProfesor.Agregar_A_lista(persona);
-		} else {
-			listaCliente.Agregar_A_lista(persona);
-		}
+		listaCliente.Agregar_A_lista(cliente);
+	}
+	public void AgregarProfesor(Profesor profesor){
+		listaProfesor.Agregar_A_lista(profesor);
 	}
 
 	public void AgregarTurno(Turno turno) // Usamos un solo agregar
@@ -130,7 +129,7 @@ public class GYM {
 
 	}
 
-	public Persona BuscarProfesorPorDNI() {
+	public Profesor BuscarProfesorPorDNI() {
 		int dni = 0;
 		Scanner scanner = new Scanner(System.in);
 		while (dni == 0) {
@@ -146,7 +145,7 @@ public class GYM {
 			scanner.nextLine();
 
 			// creo que no va a retornar la lista
-			for (Persona profesor : listaProfesor.lista) {
+			for (Profesor profesor : listaProfesor.lista) {
 				if (profesor.getDni() == dni) {
 					System.out.println(profesor);
 					return profesor;
@@ -157,7 +156,7 @@ public class GYM {
 		return null;
 	}
 
-	public Persona BuscarClientePorDNI() {
+	public Cliente BuscarClientePorDNI() {
 		int dni = 0;
 		Scanner scanner = new Scanner(System.in);
 		while (dni == 0) {
@@ -173,7 +172,7 @@ public class GYM {
 			scanner.nextLine();
 
 			// creo que no va a retornar la lista
-			for (Persona cliente : listaCliente.lista) {
+			for (Cliente cliente : listaCliente.lista) {
 				if (cliente.getDni() == dni) {
 					System.out.println(cliente);
 					return cliente;
@@ -197,7 +196,7 @@ public class GYM {
 
 	public void Dar_De_baja()// de la lista Cliente que pasan a la lista deudores
 	{
-		for (Persona cliente : listaCliente.lista) {
+		for (Cliente cliente : listaCliente.lista) {
 			if (cliente.getDeuda() > 0) {
 				listaClienteConDeudas.lista.add(cliente);
 			}
@@ -206,7 +205,7 @@ public class GYM {
 
 	public void Dar_De_alta()// de la lista deudores que pasan a lista Cliente
 	{
-		for (Persona cliente : listaClienteConDeudas.lista) {
+		for (Cliente cliente : listaClienteConDeudas.lista) {
 			if (cliente.getDeuda() < 0) {
 				listaCliente.lista.add(cliente);
 			}
@@ -816,15 +815,39 @@ public class GYM {
 		}
 	}
 
-	public ListaGenerica<Persona> cargarGson_Personas(String nombrearchivo) {
+	public ListaGenerica<Cliente> cargarGson_Clientes(String nombrearchivo) {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		BufferedReader reader = null;
-		ListaGenerica<Persona> lista = null;
+		ListaGenerica<Cliente> lista = null;
 
-		Type tipoPersona = new TypeToken<ListaGenerica<Persona>>() {}.getType();
+		Type tipoCliente = new TypeToken<ListaGenerica<Cliente>>() {}.getType();
 		try {
 			reader = new BufferedReader(new FileReader(new File(nombrearchivo)));
-			lista = gson.fromJson(reader,tipoPersona);
+			lista = gson.fromJson(reader,tipoCliente);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+
+		} finally {
+			try {
+				if (reader != null) {
+					reader.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return lista;
+	}
+	public ListaGenerica<Profesor> cargarGson_Profesores(String nombrearchivo) {
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		BufferedReader reader = null;
+		ListaGenerica<Profesor> lista = null;
+
+		Type tipoProfesor = new TypeToken<ListaGenerica<Profesor>>() {}.getType();
+		try {
+			reader = new BufferedReader(new FileReader(new File(nombrearchivo)));
+			lista = gson.fromJson(reader,tipoProfesor);
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -866,11 +889,9 @@ public class GYM {
 		return lista;
 	}
 
-	public void actualizarListaCliente(){
-		listaCliente = cargarGson_Personas("clientes.json");
-	}
+	public void actualizarListaCliente(){ listaCliente = cargarGson_Clientes("clientes.json"); }
 	public void actualizarListaProfesor(){
-		listaProfesor = cargarGson_Personas("profesores.json");
+		listaProfesor = cargarGson_Profesores("profesores.json");
 	}
 	public void actualizarListaTurnos(){
 		listaTurnos = cargarGson_Turnos("turnos.json");

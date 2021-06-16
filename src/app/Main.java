@@ -1,5 +1,6 @@
 package app;
 
+import java.time.LocalDate;
 import java.util.*;
 import domain.*;
 
@@ -59,12 +60,11 @@ public class Main {
 
 						switch (op = scanner.nextInt()){
 							case 1:
-								gym.AgregarPersona(gym.crearProfesor());
+								gym.AgregarProfesor(gym.crearProfesor());
 								break;
 							case 2:
-								Persona persona= gym.BuscarProfesorPorDNI();
-								if (persona!=null){
-									Profesor profesor = (Profesor) persona;
+								Profesor profesor= gym.BuscarProfesorPorDNI();
+								if (profesor!=null){
 									gym.Cambiar_Profesor(gym.Elegir_Turno(),profesor);
 								}
 								break;
@@ -94,7 +94,7 @@ public class Main {
 						System.out.println("");
 						switch (op = scanner.nextInt()) {
 							case 1:
-								gym.AgregarPersona(gym.crearCliente());
+								gym.AgregarCliente(gym.crearCliente());
 								break;
 							case 2:
 								Persona persona = gym.BuscarClientePorDNI();
@@ -132,25 +132,24 @@ public class Main {
 						System.out.println("");
 						switch (op = scanner.nextInt()) {
 							case 1:
-								Persona persona = gym.BuscarClientePorDNI();
-
-								if (persona == null) {
+								Cliente cliente = gym.BuscarClientePorDNI();
+								if (cliente == null) {
 									System.out.println("Esta persona no esta es null");
 									break;
 								}
 
-								if (gym.Inscribirse_A_Turnos(gym.Elegir_Turno(), persona)) {
+								if (gym.Inscribirse_A_Turnos(gym.Elegir_Turno(), cliente)) {
 									System.out.println("Se ingreso a la persona");
 								}
 								break;
 							case 2:
-								persona = gym.BuscarClientePorDNI();
-								gym.Cambiar_De_Turnos(persona, gym.Buscar_Turno_Por_Cliente(persona),
+								Cliente cliente1 = gym.BuscarClientePorDNI();
+								gym.Cambiar_De_Turnos(cliente1, gym.Buscar_Turno_Por_Cliente(cliente1),
 										gym.Elegir_Turno());
 								break;
 							case 3:
-								persona = gym.BuscarClientePorDNI();
-								gym.Cancelar_Turno(gym.Buscar_Turno_Por_Cliente(persona), persona);
+								Cliente cliente2 = gym.BuscarClientePorDNI();
+								gym.Cancelar_Turno(gym.Buscar_Turno_Por_Cliente(cliente2), cliente2);
 								break;
 							case 4:
 								gym.Ver_Turnos();
@@ -214,6 +213,7 @@ public class Main {
 						System.out.println("1: Ver profesores");
 						System.out.println("2: Ver clientes");
 						System.out.println("3: Ver productos");
+						System.out.println("4: Ver Turnos");
 						System.out.println("0:Salir");
 						System.out.println("");
 						switch (op = scanner.nextInt()) {
@@ -225,6 +225,9 @@ public class Main {
 								break;
 							case 3:
 								gym.Ver_Tienda();
+								break;
+							case 4:
+								gym.Ver_Turnos();
 								break;
 							default:
 								System.out.println("Entrada incorrecta");
@@ -288,9 +291,9 @@ public class Main {
 
 				case 0:
 					estado = false;
-					gym.guardarGson_Profesores();
-					gym.guardarGson_Clientes();
 					gym.guardarGson_Turnos();
+					gym.guardarGson_Clientes();
+					gym.guardarGson_Profesores();
 					break;
 			}
 

@@ -5,12 +5,11 @@ import org.json.JSONObject;
 
 public class Profesor extends Persona{
 
-    private Disciplina disciplina;
+    private Disciplina disciplina = Disciplina.MUSCULACION;
 
     //CONSTRUCTORES
     public Profesor(){
-        super();
-        disciplina = Disciplina.MUSCULACION;
+
     }
 
     public Profesor(Disciplina disciplina){

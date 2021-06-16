@@ -8,11 +8,10 @@ import java.time.format.DateTimeFormatter;
 
 public class Cliente extends Persona {
 
-    private LocalDate fechaIngreso;
+    private LocalDate fechaIngreso = LocalDate.now();
     private FrecuenciaPago frecuenciaPago;
     private boolean pagoCuota;
     //FORMATO DD/MM/AA PARA LA FECHA DE INGRESO
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/u");
 
     public FrecuenciaPago getFrecuenciaPago() {
         return frecuenciaPago;
@@ -26,11 +25,8 @@ public class Cliente extends Persona {
         return pagoCuota;
     }
 
-
     public Cliente(){
-        super();
-        fechaIngreso = LocalDate.now();
-        frecuenciaPago = FrecuenciaPago.MENSUAL;
+
     }
 
     public Cliente(String nombre, String apellido, int dni, char genero, int edad, int celular, LocalDate fechaIngreso,FrecuenciaPago frecuenciaPago) {
@@ -45,7 +41,7 @@ public class Cliente extends Persona {
     @Override
     public String toString() {
         return "\nCliente[ " + super.toString() +
-                ", fechaIngreso=" + fechaIngreso.format(formatter) +
+                ", fechaIngreso=" + fechaIngreso.format(DateTimeFormatter.ofPattern("dd/MM/u")) +
                 ", frecuenciaPago=" + frecuenciaPago +
                 ']';
     }
