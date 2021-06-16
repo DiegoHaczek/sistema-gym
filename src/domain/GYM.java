@@ -322,6 +322,19 @@ public class GYM {
 
 		return horario;}
 
+	public void Cambiar_Profesor (Integer horario, Profesor profesor)	{
+		boolean existe=false;
+		for (Turno turno:listaTurnos.lista) {
+			if(turno.getHorario()==horario){
+				turno.CambiarProfesor(profesor);
+				System.out.println("Profesor cambiado");
+				existe=true;
+				break;}
+		}
+		if(!existe){System.out.println("El horario no existe");}
+	}
+
+
 	//endregion
 
 	//region FUNCIONES TIENDA

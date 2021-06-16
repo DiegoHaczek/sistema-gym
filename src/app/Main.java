@@ -12,7 +12,7 @@ public class Main {
 		boolean estado2 = true;
 		boolean estado = true;
 		Persona persona;
-
+		
 		GYM gym = new GYM();
 
 		/*
@@ -38,7 +38,7 @@ public class Main {
 
 		while (estado) {
 			System.out.println("");
-			System.out.println("Ingre una Opcion");
+			System.out.println("Ingrese una Opcion");
 			System.out.println("1:Profesor");
 			System.out.println("2:Cliente");
 			System.out.println("3:Turnos");
@@ -55,19 +55,24 @@ public class Main {
 					estado2 = true;
 					while (estado2) {
 						System.out.println("");
-						System.out.println("Ingre una Opcion");
-						System.out.println("1:");
-						System.out.println("2:");
-						System.out.println("3: Borrar Profesor");
+						System.out.println("Ingrese una Opcion");
+						System.out.println("1:Agregar Profesor");
+						System.out.println("1:Agregar Profesor ");
+						System.out.println("2:Asignar Profesor a turno");
+						System.out.println("3:Borrar Profesor");
 						System.out.println("0:Salir");
 						System.out.println("");
 
-						switch (op = scanner.nextInt()) {
+						switch (op = scanner.nextInt()){
 							case 1:
-								gym.ListarCliente();
+								gym.AgregarPersona(new Profesor());
 								break;
 							case 2:
-								gym.BuscarProfesorPorDNI();
+								persona= gym.BuscarProfesorPorDNI();
+								if (persona!=null){
+									Profesor profesor = (Profesor) persona;
+									gym.Cambiar_Profesor(gym.Elegir_Turno(),profesor);
+								}
 								break;
 							case 3:
 								gym.Borrar_Profesor();
@@ -85,18 +90,30 @@ public class Main {
 					estado2 = true;
 					while (estado2) {
 						System.out.println("");
-						System.out.println("Ingre una Opcion");
-						System.out.println("1:");
-						System.out.println("2:");
-						System.out.println("3: Borrar Cliente");
+						System.out.println("Ingrese una Opcion");
+						System.out.println("1:Agregar Cliente");
+						System.out.println("2: Chequear Deuda");
+						System.out.println("3: Dar de baja clientes con deuda");
+						System.out.println("4: Dar de alta clientes con deuda paga");
+						System.out.println("5: Borrar Cliente");
 						System.out.println("0:Salir");
 						System.out.println("");
 						switch (op = scanner.nextInt()) {
 							case 1:
+								gym.AgregarPersona(new Cliente());
 								break;
 							case 2:
+								persona = gym.BuscarClientePorDNI();
+								if (persona!=null){Cliente cliente = (Cliente) persona;
+									gym.Chequear_deuda(cliente);}
 								break;
 							case 3:
+								gym.Dar_De_baja();
+								break;
+							case 4:
+								gym.Dar_De_alta();
+								break;
+							case 5:
 								gym.Borrar_Cliente();
 								break;
 							default:
@@ -112,7 +129,7 @@ public class Main {
 					estado2 = true;
 					while (estado2) {
 						System.out.println("");
-						System.out.println("Ingre una Opcion");
+						System.out.println("Ingrese una Opcion");
 						System.out.println("1: Inscribirse a un Turno");
 						System.out.println("2: Cambiar de Turno");
 						System.out.println("3: Cancelar Turno");
@@ -130,8 +147,6 @@ public class Main {
 
 								if (gym.Inscribirse_A_Turnos(gym.Elegir_Turno(), persona)) {
 									System.out.println("Se ingreso a la persona");
-								} else {
-									System.out.println("LLega?3");
 								}
 								break;
 							case 2:
@@ -201,7 +216,7 @@ public class Main {
 					estado2 = true;
 					while (estado2) {
 						System.out.println("");
-						System.out.println("Ingre una Opcion");
+						System.out.println("Ingrese una Opcion");
 						System.out.println("1: Ver profesores");
 						System.out.println("2: Ver clientes");
 						System.out.println("3: Ver productos");
@@ -230,7 +245,7 @@ public class Main {
 					estado2 = true;
 					while (estado2) {
 						System.out.println("");
-						System.out.println("Ingre una Opcion");
+						System.out.println("Ingrese una Opcion");
 						System.out.println("1:Ver movimientos");
 						System.out.println("2:Cerrar caja");
 						System.out.println("0:Salir");
@@ -255,18 +270,13 @@ public class Main {
 					estado2 = true;
 					while (estado2) {
 						System.out.println("");
-						System.out.println("Ingre una Opcion");
-						System.out.println("1:");
-						System.out.println("2:");
-						System.out.println("3:");
+						System.out.println("Ingrese una Opcion");
+						System.out.println("1:Modificar precio articulo");
 						System.out.println("0:Salir");
 						System.out.println("");
 						switch (op = scanner.nextInt()) {
 							case 1:
-								break;
-							case 2:
-								break;
-							case 3:
+								gym.Cambiar_Precio();
 								break;
 							default:
 								System.out.println("Entrada incorrecta");
