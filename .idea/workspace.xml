@@ -3,21 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6842fef1-d308-48ad-8259-c680f3715845" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sistema-gym/app/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sistema-gym/app/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sistema-gym/com/tpfinal/Cliente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sistema-gym/com/tpfinal/Disciplina.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sistema-gym/com/tpfinal/FrecuenciaPago.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sistema-gym/com/tpfinal/Persona.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sistema-gym/com/tpfinal/Profesor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sistema-gym/domain/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sistema-gym/domain/Cliente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sistema-gym/domain/GYM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sistema-gym/domain/GYM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sistema-gym/domain/ListaGenerica.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sistema-gym/domain/ListaGenerica.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sistema-gym/domain/Persona.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sistema-gym/domain/Persona.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sistema-gym/domain/Producto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sistema-gym/domain/Producto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sistema-gym/domain/Profesor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sistema-gym/domain/Profesor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sistema-gym/domain/Tienda.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sistema-gym/domain/Tienda.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sistema-gym/domain/Turno.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sistema-gym/domain/Turno.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sistema-gym/files/JsonUtiles.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sistema-gym/files/JsonUtiles.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
