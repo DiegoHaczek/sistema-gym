@@ -14,7 +14,6 @@ public class Profesor extends Persona{
     public Profesor(){
         super();
         disciplina = Disciplina.MUSCULACION;
-
     }
 
     public Profesor(Disciplina disciplina){

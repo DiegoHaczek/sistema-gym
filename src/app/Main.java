@@ -57,6 +57,8 @@ public class Main {
 		gym.AgregarTurno(new Turno(11, new Profesor("Lucas", "Lopez", 3, 'H', 35, 223548743, Disciplina.MUSCULACION)));
 		gym.AgregarTurno(new Turno(12, new Profesor("Pedro", "Sgalla", 4, 'H', 35, 223548743, Disciplina.MUSCULACION)));
 
+		Persona persona1 = new Persona();
+
 		while (estado) {
 			System.out.println("");
 			System.out.println("Ingre una Opcion");
@@ -283,13 +285,10 @@ public class Main {
 						System.out.println("");
 						switch (op = scanner.nextInt()) {
 							case 1:
-
 								break;
 							case 2:
-
 								break;
 							case 3:
-
 								break;
 							default:
 								System.out.println("Entrada incorrecta");

@@ -12,7 +12,6 @@ public class Cliente extends Persona {
     private LocalDate fechaIngreso;
     private FrecuenciaPago frecuenciaPago;
     private boolean pagoCuota;
-    private Map<FrecuenciaPago, Integer> mapaPrecios = new HashMap<>();
     //FORMATO DD/MM/AA PARA LA FECHA DE INGRESO
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/u");
 
@@ -28,10 +27,11 @@ public class Cliente extends Persona {
         return pagoCuota;
     }
 
-    //CONSTRUCTORES
+
     public Cliente(){
         super();
         fechaIngreso = LocalDate.now();
+        frecuenciaPago = FrecuenciaPago.MENSUAL;
     }
 
     public Cliente(String nombre, String apellido, int dni, char genero, int edad, int celular, LocalDate fechaIngreso,FrecuenciaPago frecuenciaPago) {
