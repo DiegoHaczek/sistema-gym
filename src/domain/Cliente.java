@@ -40,27 +40,13 @@ public class Cliente extends Persona {
     }
 
 
-    public JSONObject getFormatoJSON() throws JSONException {
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("nombre", super.getNombre());
-        jsonObject.put("apellido", super.getApellido());
-        jsonObject.put("dni", super.getDni());
-        jsonObject.put("genero", super.getGenero());
-        jsonObject.put("edad", super.getEdad());
-        jsonObject.put("celular", super.getEdad());
-        jsonObject.put("frecuencia de pago",frecuenciaPago);
-        jsonObject.put("fecha de ingreso",fechaIngreso.format(formatter));
-        return jsonObject;
-    }
 
 
     @Override
     public String toString() {
         return "\nCliente[ " + super.toString() +
-                "deuda=" + deuda +
                 ", fechaIngreso=" + fechaIngreso.format(formatter) +
                 ", frecuenciaPago=" + frecuenciaPago +
-                ", saldo=" + saldo +
                 ']';
     }
 }

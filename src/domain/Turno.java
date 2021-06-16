@@ -43,10 +43,6 @@ public class Turno {
         this.horario = horario;
     }
 
-    // Porque agregas el cliente de esta forma?
-    /*
-     * public ArrayList<Persona> AgregarCliente() { return clientes; }
-     */
 
     public void AgregarCliente(Persona persona) {
         for (Persona e : clientes) {
@@ -58,7 +54,6 @@ public class Turno {
     }
 
     public void BorrarCliente(Persona persona) {
-        // ver como arreglar esto
         clientes.remove(persona);
     }
 
@@ -103,23 +98,11 @@ public class Turno {
 
     /// endregion
 
-   /* public String VerTurno() {
-        return "Turno{" + "horario=" + getHorario() + /// muestra solo la hora
-                ", \n clientes=" + clientes + ",\n Vacantes=" + mostrarEstaLleno() + '}';
-    }*/
 
     @Override
     public String toString() {
         return "Turno [Horario=" + horario + ", estaLleno=" + estaLleno + ", Clientes=" + clientes + profesor + "]";
     }
 
-    public JSONObject getFormatoJSON() throws JSONException {
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("Horario", getHorario());
-        jsonObject.put("Profesor", getProfesor());
-        jsonObject.put("Lista Clientes", getClientes());
-        jsonObject.put("Esta lleno?", getEstaLleno());
-        return jsonObject;
-    }
 
 }

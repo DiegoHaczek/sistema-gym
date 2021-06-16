@@ -1,8 +1,9 @@
 package domain;
+import jdk.internal.util.xml.impl.Input;
 
-
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.time.LocalDate;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class Persona {
 
@@ -12,9 +13,7 @@ public class Persona {
     private char genero;
     private int edad;
     private int celular;
-
-    protected int saldo = 0;
-    protected int deuda = 0;
+    private int deuda;
 
 
     //GETTERS Y SETTERS
@@ -24,12 +23,10 @@ public class Persona {
     public char getGenero() { return genero; }
     public int getEdad() { return edad; }
     public int getCelular() { return celular; }
-    public int getSaldo() { return saldo; }
     public int getDeuda() { return deuda; }
 
     //CONSTRUCTORES
     public Persona() {
-        //crearPersona();
     }
 
     public Persona(String nombre, String apellido, int dni, char genero, int edad, int celular) {
@@ -42,7 +39,7 @@ public class Persona {
     }
 
 
-    /*public void crearPersona(){
+    public void crearPersona(){
         Scanner scanner = new Scanner(System.in);
 
         //Uso el replaceAll en caso de que el usuario ingrese numeros.
@@ -98,17 +95,7 @@ public class Persona {
             }
         }
 
-    }*/
 
-    public JSONObject getFormatoJSON() throws JSONException {
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("nombre", nombre);
-        jsonObject.put("apellido", apellido);
-        jsonObject.put("dni", dni);
-        jsonObject.put("genero", genero);
-        jsonObject.put("edad", edad);
-        jsonObject.put("celular", celular);
-        return jsonObject;
     }
 
     @Override

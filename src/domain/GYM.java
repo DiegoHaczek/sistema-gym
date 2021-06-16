@@ -9,22 +9,11 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.google.gson.reflect.TypeToken;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import files.JsonUtiles;
-
 import com.google.gson.*;
 
-//import javax.rmi.CORBA.Tie;
 
 public class GYM {
 
-	// Persona persona;
-	Cliente cliente;
-	// Persona persona;
-	Profesor profesor;
-	// ListaGenerica<Persona> listaPersona;
 	ListaGenerica<Persona> listaCliente;
 	ListaGenerica<Persona> listaProfesor;
 	ListaGenerica<Turno> listaTurnos;
@@ -195,27 +184,11 @@ public class GYM {
 		return null;
 	}
 
-
-		/*
-       for (i=0;i<=turno.getClientes().size();i++){					//y dentro de cada turno recorro su arreglo
-		if (turno.getClientes().get(i).getDni()==cliente.getDni()){ //de clientes
-			horario=turno.getHorario();
-
-		}		*/
-
-
-
-
-
 	//endregion
 
-	/*
-	 * public void LevantarJson() { listaCliente.json(); listaProfesor.json();
-	 * listaClienteConDeudas.json(); } public void ArchivarJson() {
-	 * listaCliente.json(); listaProfesor.json(); listaClienteConDeudas.json(); }
-	 */
+	//region
 
-	//regionFUNCIONES CLIENTES
+	// FUNCIONES CLIENTES
 
 	public void Chequear_deuda(Cliente cliente)// Lista la deuda actual tiene el cliente
 	{
@@ -604,6 +577,145 @@ public class GYM {
 	}
 	//endregion
 
+	//CREAR PERSONAS
+	public Cliente crearCliente(){
+
+		 String nombre = "";
+		 String apellido = "";
+		 int dni = 0;
+		 char genero = 'H';
+		 int edad = 0;
+		 int celular = 0;
+		 LocalDate fechaIngreso;
+		 FrecuenciaPago frecuenciaPago;
+
+		Scanner scanner = new Scanner(System.in);
+
+		//Uso el replaceAll en caso de que el usuario ingrese numeros.
+		System.out.println("Ingrese un nombre");
+		nombre = scanner.next();
+		nombre = nombre.replaceAll("[^a-zA-Z]", "");
+
+		System.out.println("Ingrese un apellido");
+		apellido = scanner.next();
+		apellido = apellido.replaceAll("[^a-zA-Z]", "");
+
+		while(dni == 0) {
+
+			//" limpio el buffer "
+			scanner.nextLine();
+
+			try {
+				System.out.println("Ingrese su dni");
+				dni = scanner.nextInt();
+			} catch (InputMismatchException e) {
+				System.out.println("Debe ingresar unicamente numeros");
+			}
+		}
+
+		do{
+			System.out.println("Ingrese su genero (H = Hombre, M = Mujer)");
+			genero = scanner.next().charAt(0);
+		}while (genero != 'H' && genero != 'M');
+
+		while (edad == 0) {
+
+			//" limpio el buffer "
+			scanner.nextLine();
+
+			try {
+				System.out.println("Ingrese su edad");
+				edad = scanner.nextInt();
+			} catch (InputMismatchException e) {
+				System.out.println("Debe ingresar unicamente numeros");
+			}
+		}
+
+		while (celular == 0) {
+
+			//" limpio el buffer "
+			scanner.nextLine();
+
+			try {
+				System.out.println("Ingrese un celular");
+				celular = scanner.nextInt();
+			} catch (InputMismatchException e) {
+				System.out.println("Debe ingresar unicamente numeros");
+			}
+		}
+		fechaIngreso = LocalDate.now();
+		frecuenciaPago = FrecuenciaPago.MENSUAL;
+		System.out.println("Cliente añadido con exito");
+		return new Cliente(nombre,apellido,dni,genero,edad,celular,fechaIngreso,frecuenciaPago);
+	}
+	public Profesor crearProfesor(){
+
+		String nombre = "";
+		String apellido = "";
+		int dni = 0;
+		char genero = 'H';
+		int edad = 0;
+		int celular = 0;
+		Disciplina disciplina;
+
+		Scanner scanner = new Scanner(System.in);
+
+		//Uso el replaceAll en caso de que el usuario ingrese numeros.
+		System.out.println("Ingrese un nombre");
+		nombre = scanner.next();
+		nombre = nombre.replaceAll("[^a-zA-Z]", "");
+
+		System.out.println("Ingrese un apellido");
+		apellido = scanner.next();
+		apellido = apellido.replaceAll("[^a-zA-Z]", "");
+
+		while(dni == 0) {
+
+			//" limpio el buffer "
+			scanner.nextLine();
+
+			try {
+				System.out.println("Ingrese su dni");
+				dni = scanner.nextInt();
+			} catch (InputMismatchException e) {
+				System.out.println("Debe ingresar unicamente numeros");
+			}
+		}
+
+		do{
+			System.out.println("Ingrese su genero (H = Hombre, M = Mujer)");
+			genero = scanner.next().charAt(0);
+		}while (genero != 'H' && genero != 'M');
+
+		while (edad == 0) {
+
+			//" limpio el buffer "
+			scanner.nextLine();
+
+			try {
+				System.out.println("Ingrese su edad");
+				edad = scanner.nextInt();
+			} catch (InputMismatchException e) {
+				System.out.println("Debe ingresar unicamente numeros");
+			}
+		}
+
+		while (celular == 0) {
+
+			//" limpio el buffer "
+			scanner.nextLine();
+
+			try {
+				System.out.println("Ingrese un celular");
+				celular = scanner.nextInt();
+			} catch (InputMismatchException e) {
+				System.out.println("Debe ingresar unicamente numeros");
+			}
+		}
+		disciplina = Disciplina.MUSCULACION;
+		System.out.println("Profesor añadido con exito");
+		return new Profesor(nombre,apellido,dni,genero,edad,celular,disciplina);
+	}
 
 	//GSON
 
@@ -713,7 +825,6 @@ public class GYM {
 		try {
 			reader = new BufferedReader(new FileReader(new File(nombrearchivo)));
 			lista = gson.fromJson(reader,tipoPersona);
-			// hacemos esto porque necesitamos el tipo de dato
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -739,7 +850,6 @@ public class GYM {
 		try {
 			reader = new BufferedReader(new FileReader(new File(nombrearchivo)));
 			lista = gson.fromJson(reader,tipoTurno);
-			// hacemos esto porque necesitamos el tipo de dato
 
 		} catch (IOException e) {
 			e.printStackTrace();

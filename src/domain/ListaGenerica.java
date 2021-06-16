@@ -2,8 +2,6 @@ package domain;
 
 import java.util.ArrayList;
 
-
-
 public class ListaGenerica<T>{
 
 	ArrayList<T> lista;
@@ -34,13 +32,6 @@ public class ListaGenerica<T>{
 		}
 	}
 
-	public void Eliminar_De_Lista(int ID) {
-		for (T e : lista) {
-			/*
-			 * if( e.ID()== a) { lista.remove(e); }
-			 */
-		}
-	}
 
 	public void Eliminar_De_Lista(T t) {
 		for (T e : lista) {
@@ -50,18 +41,6 @@ public class ListaGenerica<T>{
 		}
 	}
 
-	/*public T Buscar_en_Lista(Integer horarioNuevo) {
-		Turno turno;
-		for (T e : lista) {
-			if (e instanceof Turno) {
-				turno = (Turno) e;
-				if (turno.getHorario() == horarioNuevo) {
-					return e;
-				}
-			}
-		}
-		return null;
-	}*/
 
 	public T Buscar_en_Lista(String apellido) {
 		for (T e : lista) {

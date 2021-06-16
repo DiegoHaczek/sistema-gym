@@ -1,7 +1,6 @@
 package app;
 
 import java.util.*;
-
 import domain.*;
 
 public class Main {
@@ -11,14 +10,8 @@ public class Main {
 		int op;
 		boolean estado2 = true;
 		boolean estado = true;
-		Persona persona;
-		
-		GYM gym = new GYM();
 
-		/*
-		 * codigo para guardar el gson gym.guardarGson_Profesores();
-		 * gym.guardarGson_Clientes(); gym.guardarGson_Turnos();
-		 */
+		GYM gym = new GYM();
 
 		try {
 			gym.actualizarListaCliente(); // carga las listas del gson a las listas locales
@@ -35,6 +28,8 @@ public class Main {
 		} catch (NullPointerException e) {
 			e.getMessage();
 		}
+
+
 
 		while (estado) {
 			System.out.println("");
@@ -57,7 +52,6 @@ public class Main {
 						System.out.println("");
 						System.out.println("Ingrese una Opcion");
 						System.out.println("1:Agregar Profesor");
-						System.out.println("1:Agregar Profesor ");
 						System.out.println("2:Asignar Profesor a turno");
 						System.out.println("3:Borrar Profesor");
 						System.out.println("0:Salir");
@@ -65,10 +59,10 @@ public class Main {
 
 						switch (op = scanner.nextInt()){
 							case 1:
-								gym.AgregarPersona(new Profesor());
+								gym.AgregarPersona(gym.crearProfesor());
 								break;
 							case 2:
-								persona= gym.BuscarProfesorPorDNI();
+								Persona persona= gym.BuscarProfesorPorDNI();
 								if (persona!=null){
 									Profesor profesor = (Profesor) persona;
 									gym.Cambiar_Profesor(gym.Elegir_Turno(),profesor);
@@ -100,10 +94,10 @@ public class Main {
 						System.out.println("");
 						switch (op = scanner.nextInt()) {
 							case 1:
-								gym.AgregarPersona(new Cliente());
+								gym.AgregarPersona(gym.crearCliente());
 								break;
 							case 2:
-								persona = gym.BuscarClientePorDNI();
+								Persona persona = gym.BuscarClientePorDNI();
 								if (persona!=null){Cliente cliente = (Cliente) persona;
 									gym.Chequear_deuda(cliente);}
 								break;
@@ -138,7 +132,7 @@ public class Main {
 						System.out.println("");
 						switch (op = scanner.nextInt()) {
 							case 1:
-								persona = gym.BuscarClientePorDNI();
+								Persona persona = gym.BuscarClientePorDNI();
 
 								if (persona == null) {
 									System.out.println("Esta persona no esta es null");
@@ -294,6 +288,9 @@ public class Main {
 
 				case 0:
 					estado = false;
+					gym.guardarGson_Profesores();
+					gym.guardarGson_Clientes();
+					gym.guardarGson_Turnos();
 					break;
 			}
 

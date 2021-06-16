@@ -24,18 +24,6 @@ public class Profesor extends Persona{
 
     }
 
-    public JSONObject getFormatoJSON() throws JSONException {
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("nombre", super.getNombre());
-        jsonObject.put("apellido", super.getApellido());
-        jsonObject.put("dni", super.getDni());
-        jsonObject.put("genero", super.getGenero());
-        jsonObject.put("edad", super.getEdad());
-        jsonObject.put("celular", super.getEdad());
-        jsonObject.put("disciplina", disciplina);
-        return jsonObject;
-    }
-
     @Override
     public String toString(){
         return "\nProfesor[ " + super.toString() +

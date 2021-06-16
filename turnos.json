@@ -11,7 +11,6 @@
         "genero": "H",
         "edad": 35,
         "celular": 223548743,
-        "saldo": 0,
         "deuda": 0
       },
       "estaLleno": false
@@ -27,7 +26,6 @@
         "genero": "M",
         "edad": 35,
         "celular": 223548743,
-        "saldo": 0,
         "deuda": 0
       },
       "estaLleno": false
@@ -43,7 +41,6 @@
         "genero": "H",
         "edad": 35,
         "celular": 223548743,
-        "saldo": 0,
         "deuda": 0
       },
       "estaLleno": false
@@ -59,7 +56,6 @@
         "genero": "H",
         "edad": 35,
         "celular": 223548743,
-        "saldo": 0,
         "deuda": 0
       },
       "estaLleno": false
