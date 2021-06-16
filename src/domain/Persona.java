@@ -1,8 +1,6 @@
 package domain;
 
-import java.util.InputMismatchException;
-import java.util.Random;
-import java.util.Scanner;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 

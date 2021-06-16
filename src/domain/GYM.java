@@ -309,7 +309,6 @@ public class GYM {
 	public int Buscar_Turno_Por_Cliente (Persona clienteBuscado)  ///recibe la persona y te dice en que turno esta
 	{
 		int horario=0;
-		int i=0;
 
 		for (Turno turno: listaTurnos.lista) {                              //recorro el arreglo de turnos
 			for (Persona cliente: turno.getClientes()){                     //recorro el arreglo de personas en
@@ -565,93 +564,6 @@ public class GYM {
 
 	}
 
-	public JSONArray Levantar_Json_Cliente(){
-		JSONArray listArray = new JSONArray();
-		JsonUtiles utiles = new JsonUtiles();
-
-		try {
-			for (Persona e : listaCliente.lista) {
-				listArray.put(e.getFormatoJSON());
-			}
-		}catch (JSONException e1) {
-			e1.printStackTrace();
-		}
-
-		String respuesta = listArray.toString();
-		try {
-			JSONArray arregloJson = new JSONArray(respuesta);
-			utiles.grabar(arregloJson);
-			return arregloJson;
-		}catch (JSONException e1){
-			e1.printStackTrace();
-		}
-		return null;
-	}
-
-	public JSONArray Levantar_Json_Profesor(){
-		JSONArray listArray = new JSONArray();
-		JsonUtiles utiles = new JsonUtiles();
-
-		try {
-			for (Persona e : listaProfesor.lista) {
-				listArray.put(e.getFormatoJSON());
-			}
-		}catch (JSONException e1) {
-				e1.printStackTrace();
-		}
-
-		String respuesta = listArray.toString();
-		try {
-			JSONArray arregloJson = new JSONArray(respuesta);
-			utiles.grabar(arregloJson);
-			return arregloJson;
-		}catch (JSONException e1){
-			e1.printStackTrace();
-		}
-		return null;
-	}
-
-	public JSONArray Levantar_Json_Turnos(){
-		JSONArray listArray = new JSONArray();
-		JsonUtiles utiles = new JsonUtiles();
-		JSONObject jsonObject = new JSONObject();
-		try {
-			for (Turno e : listaTurnos.lista) {
-				listArray.put(e.getFormatoJSON());
-			}
-		}catch (JSONException e1) {
-			e1.printStackTrace();
-		}
-
-		String respuesta = listArray.toString();
-		try {
-			JSONArray arregloJson = new JSONArray(respuesta);
-			utiles.grabar(arregloJson);
-			return arregloJson;
-		}catch (JSONException e1){
-			e1.printStackTrace();
-		}
-		return null;
-	}
-
-	
-	public void Levantar_ALL() throws JSONException
-{
-	JSONArray listaArray = new JSONArray();
-	JsonUtiles utiles = new JsonUtiles();
-	listaArray.put(Levantar_Json_Cliente());
-	listaArray.put(Levantar_Json_Profesor());
-	listaArray.put(Levantar_Json_Turnos());
-	
-	String repuesta = listaArray.toString();
-	JSONArray arregloJson = new JSONArray(repuesta);
-	utiles.grabar(arregloJson);
-	System.out.println(arregloJson);
-	
-}
-
-
-
 	//endregion
 
 	//region FUNCIONES CONTABILIDAD
@@ -678,48 +590,6 @@ public class GYM {
 		contabilidad.fechaHoy.plusDays(1);
 	}
 	//endregion
-
-	
-	/*public JSONArray levantarJson() throws JSONException { JSONArray listArray =
-	 * new JSONArray(); JsonUtil utiles = new JsonUtil(); JSONObject jsonObject =
-	 * new JSONObject();
-	 * 
-	 * for (T e : lista) { listArray.put(e.getFormatoJSON()); } String respuesta =
-	 * listArray.toString(); JSONArray arregloJson = new JSONArray(respuesta);
-	 * utiles.grabarJson(arregloJson); return arregloJson; }*
-
-	public void Levantar_ALL() throws JSONException {
-		JSONArray listaArray = new JSONArray();
-		JsonUtil utiles = new JsonUtil();
-		listaArray.put(avionGuerra.levantarJson());
-		listaArray.put(avionPrivado.levantarJson());
-		listaArray.put(avionCargas.levantarJson());
-		listaArray.put(avionComercial.levantarJson());
-		String repuesta = listaArray.toString();
-		JSONArray arregloJson = new JSONArray(repuesta);
-		utiles.grabarJson(arregloJson);
-		System.out.println(arregloJson);
-
-	}
-
-	public String Pasar_A_JSON_Lista() {
-		JSONArray ListJson = new JSONArray(ListaHelado);
-		JSONArray ListJson2 = new JSONArray(ListaHelado);
-		return ListJson.toString();
-	}*/
-
-
-	/*public String devuelveToString(){
-	
-		JSONArray jsonArray = new JSONArray();
-		JSONObject myObject = new JSONObject();
-	
-		myObject = devuelveObj();
-	
-		jsonArray.put(myObject);
-	
-		return jsonArray.toString();
-	}*/
 
 
 	//GSON

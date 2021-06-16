@@ -1,45 +1,41 @@
 package app;
 
-
 import java.util.*;
 
 import domain.*;
-
 
 public class Main {
 
 	public static void main(String[] args) {
 
 		int op;
-		String opString;
 		boolean estado2 = true;
 		boolean estado = true;
 		Persona persona;
 
 		GYM gym = new GYM();
 
-		/* codigo para guardar el gson
-		gym.guardarGson_Profesores();
-		gym.guardarGson_Clientes();
-		gym.guardarGson_Turnos();
+		/*
+		 * codigo para guardar el gson gym.guardarGson_Profesores();
+		 * gym.guardarGson_Clientes(); gym.guardarGson_Turnos();
 		 */
 
 		try {
-			gym.actualizarListaCliente(); //carga las listas del gson a las listas locales
-		}catch (NullPointerException e){
+			gym.actualizarListaCliente(); // carga las listas del gson a las listas locales
+		} catch (NullPointerException e) {
 			e.getMessage();
 		}
 		try {
-			gym.actualizarListaProfesor(); //carga las listas del gson a las listas locales
-		}catch (NullPointerException e){
+			gym.actualizarListaProfesor(); // carga las listas del gson a las listas locales
+		} catch (NullPointerException e) {
 			e.getMessage();
 		}
 		try {
-			gym.actualizarListaTurnos(); //carga las listas del gson a las listas locales
-		}catch (NullPointerException e){
+			gym.actualizarListaTurnos(); // carga las listas del gson a las listas locales
+		} catch (NullPointerException e) {
 			e.getMessage();
 		}
-		
+
 		while (estado) {
 			System.out.println("");
 			System.out.println("Ingre una Opcion");
@@ -54,10 +50,10 @@ public class Main {
 			System.out.println("");
 
 			Scanner scanner = new Scanner(System.in);
-			switch (op = scanner.nextInt()){
+			switch (op = scanner.nextInt()) {
 				case 1:
 					estado2 = true;
-					while(estado2){
+					while (estado2) {
 						System.out.println("");
 						System.out.println("Ingre una Opcion");
 						System.out.println("1:");
@@ -66,7 +62,7 @@ public class Main {
 						System.out.println("0:Salir");
 						System.out.println("");
 
-						switch (op = scanner.nextInt()){
+						switch (op = scanner.nextInt()) {
 							case 1:
 								gym.ListarCliente();
 								break;
@@ -114,7 +110,7 @@ public class Main {
 					break;
 				case 3:
 					estado2 = true;
-					while (estado2){
+					while (estado2) {
 						System.out.println("");
 						System.out.println("Ingre una Opcion");
 						System.out.println("1: Inscribirse a un Turno");
@@ -140,7 +136,8 @@ public class Main {
 								break;
 							case 2:
 								persona = gym.BuscarClientePorDNI();
-								gym.Cambiar_De_Turnos(persona, gym.Buscar_Turno_Por_Cliente(persona), gym.Elegir_Turno());
+								gym.Cambiar_De_Turnos(persona, gym.Buscar_Turno_Por_Cliente(persona),
+										gym.Elegir_Turno());
 								break;
 							case 3:
 								persona = gym.BuscarClientePorDNI();
@@ -291,7 +288,6 @@ public class Main {
 			}
 
 		}
-
 
 	}
 

@@ -1,8 +1,6 @@
 package domain;
 
 
-import domain.ListaGenerica;
-
 import java.util.*;
 
 public class Tienda implements Billetera{

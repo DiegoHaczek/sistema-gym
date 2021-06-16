@@ -5,7 +5,6 @@ import org.json.JSONObject;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
 
 public class Cliente extends Persona {
 

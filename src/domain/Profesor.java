@@ -3,9 +3,6 @@ package domain;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.time.LocalDate;
-import java.util.Random;
-
 public class Profesor extends Persona{
 
     private Disciplina disciplina;
